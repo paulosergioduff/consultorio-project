@@ -1,0 +1,54 @@
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-firestore.js"></script>
+
+<!-- XRUD dependences -->
+<script type="text/javascript" src="../config/configFire.js"></script>
+<script src="../vendor/xrud.js"></script>
+<script src="../vendor/json2html.js"></script>
+
+
+
+<div id="output"></div>
+
+
+<div id="output"></div>
+
+<script>
+
+    var lineCode = []; //Stores HTML code for front end
+    const limitPage = 10; // Limits the number of records added to the page.
+    var countView = 0; // Set item count 
+    
+     function xrud_miniController($content) { // Set the data that will go to the view.
+
+        let html = json2html.transform($content, {
+            '<>': 'h3',
+            'html': '${capital}'
+        });
+        let html2 = html + json2html.transform($content, {
+            '<>': 'li',
+            'html': '${nome}'
+        }) + '<hr>';
+        lineCode.push(html2);
+        window.document.getElementById("xrud_ID_"+countView).innerHTML = lineCode[countView];
+        countView++;
+
+    }
+
+
+    function loadMiniView() {
+        for (var i = 0; i < limitPage; i++) {
+
+            var currentCode = window.document.getElementById('output').innerHTML;
+
+            window.document.getElementById('output').innerHTML = currentCode + "<div id='xrud_ID_" + i + "'></div>";
+        }
+    }
+
+    
+    
+    loadMiniView();
+    xrud_search('colecao', 'country', 'USA');
+    
+</script>
