@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <style>
+    	/*7f51b3*/
 
       #salaum{
         background-image: url("images/Sala1.jpg");
@@ -61,6 +62,8 @@
 
 <script type="text/javascript">
   var paginaLogin = false;
+  let reservadoAtual = localStorage.getItem('sala2');
+  alert(reservadoAtual);
 </script>
 
 
@@ -154,7 +157,7 @@
                 <div class="mdl-card__supporting-text">
                 Consultório 2
                 </div>
-                <div class="mdl-card__actions mdl-card--border">
+                <div class="mdl-card__actions mdl-card--border" onclick="reservar('sala2', 'Novo dado gerado')">
                 <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                     Reservar
                     </a>
@@ -207,5 +210,36 @@
 
   <script src="js/appAuth.js"></script>
   
+
+  <script type="text/javascript">
+  	
+  	function action($sala, $mensagem){
+  		let mensagem = $mensagem;
+  		localStorage.setItem('sala2', $mensagem);
+  		alert(mensagem);
+  	}
+
+  	function reservar($sala, $store){
+  		localStorage.setItem('sala2', $store);
+  		alert($store);
+  	}
+
+  </script>
+
+  <style type="text/css">
+  	  
+		.mdl-layout__header-row {
+		    height: 56px;
+		    padding: 0 16px 0 72px;
+		    background: #7f51b3;
+		}
+
+		.mdl-layout--fixed-header>.mdl-layout__header {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    background: #7f51b3;
+}
+		  </style>
 </body>
 </html>

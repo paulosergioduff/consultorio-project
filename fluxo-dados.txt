@@ -1,0 +1,2 @@
+Click  <------------------> Grava dado
+Click  <------------------> Resgatar um dado

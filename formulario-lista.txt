@@ -1,0 +1,7 @@
+* Sala -> Com nome (nomenclatura)
+* Não visualizar horários já marcados, possibilitar de ver todos os horários
+* Atalho para telefone ou whatsapp
+* Upload de foto obrigatório
+* Tabelas https://getbootstrap.com/docs/4.0/content/tables/
+https://demos.devexpress.com/bootstrap/scheduler/
+* Aparecer quem está atendendo (nome) + Comunicação
