@@ -23,6 +23,7 @@
 <!--Dependencia de autentificação -->
 <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="js/json2html.js"></script>
 
 <script type="text/javascript">
   var paginaLogin = false;
@@ -42,26 +43,27 @@
     <header class="mdl-layout__header">
       <div class="mdl-layout__header-row">
         <!-- Title -->
-        <span class="mdl-layout-title">Title</span>
+        <span class="mdl-layout-title">Consultório Hugo Silva</span>
         <!-- Add spacer, to align navigation to the right -->
         <div class="mdl-layout-spacer"></div>
         <!-- Navigation. We hide it in small screens. -->
         <nav class="mdl-navigation mdl-layout--large-screen-only">
-          <a class="mdl-navigation__link" href="">Link</a>
-          <a class="mdl-navigation__link" href="">Link</a>
-          <a class="mdl-navigation__link" href="">Link</a>
-          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href=""></a>
+          <a class="mdl-navigation__link" href=""></a>
+          <a class="mdl-navigation__link" href=""></a>
+          <a class="mdl-navigation__link" href=""></a>
         </nav>
       </div>
     </header>
     <div class="mdl-layout__drawer">
-      <span class="mdl-layout-title">Title</span>
+      <span class="mdl-layout-title">Consultório Hugo Silva</span>
       <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="" id="btnLogOut">Sair</a>
+        <a class="mdl-navigation__link" href="listar.html">Agendamento</a>
+        <a class="mdl-navigation__link" href="listaDeEmpresas.html">Prontuário</a>
+        <a class="mdl-navigation__link" href="">Contrato</a>
+        <a class="mdl-navigation__link" href="">Modelo de Documentos</a>
+        <a class="mdl-navigation__link" href="">Encaminhamento</a>
+        <a class="mdl-navigation__link" href="">Ranking</a>
       </nav>
     </div>
     <main class="mdl-layout__content">
@@ -77,7 +79,42 @@
  <!-- content -->
 
         <center>
-          <!-- contéudo aqui -->
+
+        		<div id="console">
+		
+	</div>
+<script type="text/javascript">
+	let reservadoAtual = localStorage.getItem('sala2');
+	document.getElementById('console').innerHTML = reservadoAtual;
+</script>
+                <div id="output"></div>
+
+                <script src="js/xrud.js"></script>
+                <script>
+            var listaGlobal = "";
+            
+                    let dataDemo = {
+                                abordagem: "supermarket 2", horario_h: "RJ", horario_m: "USA", nasc: "21/08/1984", nome: "João", nome_da_sala: "Infantil", sobre_nome:"da Silva", telefone: 1860000 };
+            
+                                function xrud_miniController($content){
+                                
+                                var html = json2html.transform($content,{'<>':'h3','html': 'Nome: ${nome}<br> Sala: ${nome_da_sala}'},  );
+                                var html = html+json2html.transform($content,{'<>':'li','html': '${Local}'})+'<hr>';
+                                var htmlFinal = window.document.getElementById('output').innerHTML = listaGlobal+html;
+                                listaGlobal = htmlFinal;
+                            }
+            
+                   
+            
+                    // implementation 
+               xrud_send('agendamento', 'new', dataDemo);
+                //xrud_delete('empresas', 'novidade');
+                xrud_read('agendamento');
+
+
+
+
+                </script>
         </center>            
   
    <!-- content -->    
@@ -96,3 +133,4 @@
   
 </body>
 </html>
+
