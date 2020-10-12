@@ -57,7 +57,7 @@
 				//document.getElementById('app-content').style.display = "inline";
 
 				if (paginaLogin == true) {
-					window.location.href = "index.html";
+					window.location.href = "porsalas.html";
 
 					}
 			}
