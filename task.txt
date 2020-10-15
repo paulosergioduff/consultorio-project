@@ -1,1 +1,21 @@
 * Trocar nome para sublocações
+* Menu relatórios
+* Menu Pagamentos
+* Menu inicial
+* Menu sair
+
+
+* Icone horário -> Calendário -> Horário -> Sala -> Confirmar -> Relatório
+* Icone Sala  -> Calendário -> Sala -> Horário -> Confirmar -> Relatório
+
+* Tela de salas aparecerá em todos os cenários
+
+* Agendamentos (select option html) -> Diferenciar a marcação avulso e mensal. Opção na hora de marcar (avulsa ou múltipla)
+ - Avulsa -> Uma marcação (agendamento em menos de 7 dias)
+ - Múltipla -> Até 5 marcações
+ - Cada final de mês, informar todos os horários feitos com opção de remarcar todos eles ou alguns.
+ - Opção de marcar até final do mês
+
+ * Providenciar critérios de reposição
+ * Layout 
+ * priorizar menu pagamento e 
