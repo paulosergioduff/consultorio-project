@@ -15,25 +15,14 @@
     <style>
     	/*7f51b3*/
 
-      #relogio{
-        background-image: url("images/relogio.jpg");
-        background-repeat: no-repeat;
-        background-position: center;       
-        width: 100%;
-        height: 100%;
-        text-align: center;
+      #corpo{
+       text-align: center;
+       margin-top: 6px;
+       font-size: 20px;
         
       }
 
-       #porta{
-        background-image: url("images/porta.png");
-       background-position: center;
-        width: 100%;
-        height: 100%;
-        text-align: center;
-        
-      }
-        
+       
     </style>
 
     <!-- icones externos -->
@@ -91,110 +80,15 @@
         <a class="mdl-navigation__link" href="">Encaminhamento</a>
         <a class="mdl-navigation__link" href="ranking.html">Ranking</a>
 <a href="#" id="btnLogOut" class="mdl-navigation__link">Sair</a>
-        
       </nav>
     </div>
 
-   <div class="mdl-grid">
-    <div class="mdl-layout-spacer"></div>
-    <div class="mdl-cell mdl-cell--5-col">
-    	
-<!-- CARDS PAINEL -->
-
-<script type="text/javascript">
-  function porsala(){
-              window.location.href = "porsalas.html";
-
-  }
-
-  function porhorario(){
-              window.location.href = "pordata.html";
-
-  }
-</script>
-
-      <!-- Square card -->
-      <div class="mdl-card mdl-shadow--2dp demo-card-square" onclick="porhorario();"> 
-        <div id="relogio"> <div class="mdl-card__title mdl-card--expand"></div>
-            <h2 class="mdl-card__title-text"></h2>
-            </div>
-            <div class="mdl-card__supporting-text">
-            
-            </div>
-            <div class="mdl-card__actions mdl-card--border">
-            <a class="mdl-button mdl-button--accent mdl-js-button mdl-js-ripple-effect">
-                Agendar por Horário
-                </a>
-            </div>
-        </div>
-        <!-- Square card -->
-        <div class="mdl-card mdl-shadow--2dp demo-card-square" onclick="porsala();">
-          <div id="porta"><div class="mdl-card__title mdl-card__accent mdl-card--expand"></div>
-            <h2 class="mdl-card__title-text"></h2>
-            </div>
-            <div class="mdl-card__supporting-text">
-            
-            </div>
-            <div class="mdl-card__actions mdl-card--border" onclick="reservar('sala2', 'Novo dado gerado hoje')">
-            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                Agendar por Consultorio
-                </a>
-            </div>
-        </div>
-<!-- CARDS PAINEL -->
+ <div id="corpo">Meus Ultimos Agendamentos</div>
 
 
 
-    </div>
-    <div class="mdl-layout-spacer"></div>
-</div>
 
 
-    <main class="mdl-layout__content">
-      <div class="page-content"><!-- Your content goes here -->
-      
-        <!-- List items with avatar and action -->
-<style>
-  .demo-list-action {
-    width: 300px;
-  }
-  </style>
-  
- <!-- content -->
-
-
-
-        <center>
-            <h1></h1>
-
-            <!-- autocomplete -->
-                          
-
-                    <script>
-
-                    var options = {
-                      data: ["blue", "green", "pink", "red", "yellow"],
-
-                    };
-
-                    $("#simple").easyAutocomplete(options);
-
-                    </script>
-                    
-                    <br>
-            <!-- autocomplete -->
-                        <!-- List items with avatar and action -->
-            
-            
-            
-            </div>
-        </center>            
-  
-   <!-- content -->    
-      
-      </div>
-    </main>
-  </div>
 
   <!-- Para refatorar: Prazo curto de projeto -->
   <div style="display: none">
@@ -205,7 +99,23 @@
   <script src="js/appAuth.js"></script>
   
 
+  <script type="text/javascript">
+  	
+  	function action($sala, $mensagem){
+  		let mensagem = $mensagem;
+  		localStorage.setItem('sala2', $mensagem);
+	    	
+  	}
 
+  	function reservar($sala, $store){
+  		localStorage.setItem($sala, $store);
+  		setTimeout(function() {
+	    		window.location.href = "agendando.html";
+			}, 1000);
+  		//alert($store);
+  	}
+
+  </script>
 
 
 </body>
