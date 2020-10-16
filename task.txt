@@ -4,6 +4,12 @@
 * Menu inicial
 * Menu sair
 
+* Dminuir e centralizar CARDS
+* Trocar calendário
+* Ranking com atualização e prêmio
+* Trocar imagens de horário e sala
+* Colocar imagens novas
+
 
 * Icone horário -> Calendário -> Horário -> Sala -> Confirmar -> Relatório
 * Icone Sala  -> Calendário -> Sala -> Horário -> Confirmar -> Relatório
