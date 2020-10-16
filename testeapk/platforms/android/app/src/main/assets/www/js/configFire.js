@@ -6,7 +6,7 @@
     projectId: "telas99freela",
     storageBucket: "telas99freela.appspot.com",
     messagingSenderId: "808715506643",
-    appId: "1:808715506643:web:e7a498ad41ce4469"
+    appId: "1:808715506643:web:6be5a7d6b3d2bd0d8fd526"
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
