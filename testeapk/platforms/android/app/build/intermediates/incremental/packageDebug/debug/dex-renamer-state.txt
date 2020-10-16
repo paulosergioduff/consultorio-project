@@ -1,4 +1,4 @@
-#Fri Oct 16 18:09:26 UTC 2020
+#Fri Oct 16 18:57:24 UTC 2020
 base.0=/consultorio-project/testeapk/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0
 renamed.0=classes.dex
 file.0=/consultorio-project/testeapk/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0/classes.dex
