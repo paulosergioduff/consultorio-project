@@ -6,6 +6,8 @@ jQuery(document).ready(function () {
     multipleDates: true,
     multipleDatesSeparator: " - " });
 
+
+/// PEgando evento da agenda
   jQuery("#add-event").submit(function () {
     alert("Submitted");
     var values = {};

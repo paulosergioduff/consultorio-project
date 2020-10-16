@@ -15,35 +15,25 @@
     <style>
     	/*7f51b3*/
 
-      #salaum{
-        background-image: url("images/Sala1.jpg");
-       
+      #relogio{
+        background-image: url("images/relogio.jpg");
+        background-repeat: no-repeat;
+        background-position: center;       
         width: 100%;
         height: 100%;
+        text-align: center;
         
       }
 
-       #saladois{
-        background-image: url("images/sala2.jpg");
-       
+       #porta{
+        background-image: url("images/porta.png");
+       background-position: center;
         width: 100%;
         height: 100%;
+        text-align: center;
         
       }
-      #salatres{
-        background-image: url("images/sala3.jpg");
-       
-        width: 100%;
-        height: 100%;
         
-      }
-      #salaquatro{
-        background-image: url("images/sala4.jpg");
-       
-        width: 100%;
-        height: 100%;
-        
-      }      
     </style>
 
     <!-- icones externos -->
@@ -94,12 +84,12 @@
       <span class="mdl-layout-title">Sublocações</span>
       <nav class="mdl-navigation">
         <a class="mdl-navigation__link" href="escolher.html">Início</a>
-<a class="mdl-navigation__link" href="listar.html">Agendamento</a>
+<a class="mdl-navigation__link" href="ultimosagenda.html">Agendamento</a>
         <a class="mdl-navigation__link" href="listaDeEmpresas.html">Prontuário</a>
         <a class="mdl-navigation__link" href="">Contrato</a>
         <a class="mdl-navigation__link" href="">Modelo de Documentos</a>
         <a class="mdl-navigation__link" href="">Encaminhamento</a>
-        <a class="mdl-navigation__link" href="">Ranking</a>
+        <a class="mdl-navigation__link" href="ranking.html">Ranking</a>
 <a href="#" id="btnLogOut" class="mdl-navigation__link">Sair</a>
         
       </nav>
@@ -124,33 +114,33 @@
 </script>
 
       <!-- Square card -->
-            <div class="mdl-card mdl-shadow--2dp demo-card-square" onclick="porhorario();">
-                <div class="mdl-card__title mdl-card--expand">
-                <h2 class="mdl-card__title-text">Agendar por horário</h2>
-                </div>
-                <div class="mdl-card__supporting-text">
-                </div>
-                <div class="mdl-card__actions mdl-card--border">
-                <a class="mdl-button mdl-button--accent mdl-js-button mdl-js-ripple-effect">
-                    Action
-                    </a>
-                </div>
+      <div class="mdl-card mdl-shadow--2dp demo-card-square" onclick="porhorario();"> 
+        <div id="relogio"> <div class="mdl-card__title mdl-card--expand"></div>
+            <h2 class="mdl-card__title-text"></h2>
             </div>
-            <!-- Square card -->
-            <div class="mdl-card mdl-shadow--2dp demo-card-square" onclick="porsala();">
-                <div class="mdl-card__title mdl-card__accent mdl-card--expand">
-                <h2 class="mdl-card__title-text">Agendar por sala</h2>
-                </div>
-                <div class="mdl-card__supporting-text">
-                </div>
-                <div class="mdl-card__actions mdl-card--border">
-                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                    Action
-                    </a>
-                </div>
+            <div class="mdl-card__supporting-text">
+            
             </div>
-
-
+            <div class="mdl-card__actions mdl-card--border">
+            <a class="mdl-button mdl-button--accent mdl-js-button mdl-js-ripple-effect">
+                Agendar por Horário
+                </a>
+            </div>
+        </div>
+        <!-- Square card -->
+        <div class="mdl-card mdl-shadow--2dp demo-card-square" onclick="porsala();">
+          <div id="porta"><div class="mdl-card__title mdl-card__accent mdl-card--expand"></div>
+            <h2 class="mdl-card__title-text"></h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+            
+            </div>
+            <div class="mdl-card__actions mdl-card--border" onclick="reservar('sala2', 'Novo dado gerado hoje')">
+            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                Agendar por Consultorio
+                </a>
+            </div>
+        </div>
 <!-- CARDS PAINEL -->
 
 

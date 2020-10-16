@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Material Design Lite -->
+    <script src="js/material.min.js"></script>
+    <link rel="stylesheet" href="css/material.indigo-pink.min.css">
+    <!-- Roboto Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <!-- Material Design icon font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <style>
+    	/*7f51b3*/
+
+      #corpo{
+       text-align: center;
+       margin-top: 6px;
+       font-size: 20px;
+        
+      }
+
+       
+    </style>
+
+    <!-- icones externos -->
+    <script src="https://kit.fontawesome.com/a664376c48.js"></script>
+
+        	<!-- baseado em authDemo.html -->
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
+<script type="text/javascript" src="js/configFire.js"></script>
+<!--Dependencia de autentificação -->
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+
+<script type="text/javascript">
+  var paginaLogin = false;
+</script>
+
+
+    <!-- Grid CSS -->
+    <link rel="stylesheet" href="css/grid.css">
+
+    
+    <title>Consultório Hugo Silva</title>
+</head>
+<body>
+
+      <!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <!-- Title -->
+        <span class="mdl-layout-title">Sublocações</span>
+        <!-- Add spacer, to align navigation to the right -->
+        <div class="mdl-layout-spacer"></div>
+        <!-- Navigation. We hide it in small screens. -->
+        <nav class="mdl-navigation mdl-layout--large-screen-only">
+          <a class="mdl-navigation__link" href=""></a>
+          <a class="mdl-navigation__link" href=""></a>
+          <a class="mdl-navigation__link" href=""></a>
+          <a class="mdl-navigation__link" href=""></a>
+        </nav>
+      </div>
+    </header>
+    <div class="mdl-layout__drawer">
+      <span class="mdl-layout-title">Sublocações</span>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="escolher.html">Início</a>
+<a class="mdl-navigation__link" href="ultimosagenda.html">Agendamento</a>
+        <a class="mdl-navigation__link" href="listaDeEmpresas.html">Prontuário</a>
+        <a class="mdl-navigation__link" href="">Contrato</a>
+        <a class="mdl-navigation__link" href="">Modelo de Documentos</a>
+        <a class="mdl-navigation__link" href="">Encaminhamento</a>
+        <a class="mdl-navigation__link" href="ranking.html">Ranking</a>
+<a href="#" id="btnLogOut" class="mdl-navigation__link">Sair</a>
+      </nav>
+    </div>
+
+ <div id="corpo">Meus Ultimos Agendamentos</div>
+
+
+
+
+
+
+  <!-- Para refatorar: Prazo curto de projeto -->
+  <div style="display: none">
+      <button id="btnLogin" class="btn btn-success" >Login</button><button id="btnSignUp">Cadastro</button><br>
+      <button id="btnLogOut" style="display: none;">Sair</button>
+  </div>
+
+  <script src="js/appAuth.js"></script>
+  
+
+  <script type="text/javascript">
+  	
+  	function action($sala, $mensagem){
+  		let mensagem = $mensagem;
+  		localStorage.setItem('sala2', $mensagem);
+	    	
+  	}
+
+  	function reservar($sala, $store){
+  		localStorage.setItem($sala, $store);
+  		setTimeout(function() {
+	    		window.location.href = "agendando.html";
+			}, 1000);
+  		//alert($store);
+  	}
+
+  </script>
+
+
+</body>
+</html>
