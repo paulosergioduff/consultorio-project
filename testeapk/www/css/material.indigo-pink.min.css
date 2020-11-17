@@ -10,12 +10,16 @@
 		.mdl-layout__header-row {
 		    height: 56px;
 		    padding: 0 16px 0 72px;
-		    background: #7f51b3;
+		    background: #8800ff;
 		}
 
 		.mdl-layout--fixed-header>.mdl-layout__header {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    background: #7f51b3;
+    background: #8800ff;
 }
+
+	.mdl-card{
+		border-radius: 20px !important;
+	}

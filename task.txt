@@ -9,10 +9,16 @@
 * Ranking com atualização e prêmio
 * Trocar imagens de horário e sala
 * Colocar imagens novas
+* Cálcuo de descontos
 
 
-* Icone horário -> Calendário -> Horário -> Sala -> Confirmar -> Relatório
-* Icone Sala  -> Calendário -> Sala -> Horário -> Confirmar -> Relatório
+* Icone horário ->  Calendário Clone da sala -> Faixa de horários -> Faixa de dias (semana) Abrir sala (tabela) -> airbnb -> Reservar -> Confirmar -> Relatório
+    --> Selecionar hora --> Selecionar dia --> {
+    		Se documento = X resultado => W
+    		senão senão => z
+    }
+
+* Icone Sala  -> Sala -> Calendário  -> Horário -> Confirmar -> Relatório
 
 * Tela de salas aparecerá em todos os cenários
 
@@ -25,3 +31,13 @@
  * Providenciar critérios de reposição
  * Layout 
  * priorizar menu pagamento e 
+
+ * Pagamentos
+ - Verificar implementação de PIX
+ - Possibilidade de depósito bancário
+
+
+ IDEIA
+
+ * Relógio gráfico analógico
+ * Opção Wizard para agendamento
