@@ -5,8 +5,11 @@ var xrudDevMode = false; // true value for a console mode, and false for product
 var listaGlobal = "";
 
     function xrud_debug($message){
+
+        let tipo = typeof($message);
+        //alert(tipo);
         if (xrudDevMode == true){
-            console.log("Debug: "+$message);
+            console.log("Debug: "+tipo);
         }
     }
 
@@ -28,7 +31,7 @@ var listaGlobal = "";
         db.collection($collection).get().then(function(querySnapshot) {
             querySnapshot.forEach(function(doc) {
                 // doc.data() is never undefined for query doc snapshots
-                console.log(doc.id);
+              //  console.log(doc.id);
                 var document = doc.id;
                 let result = JSON.stringify(doc.data());
                 if (xrudDevMode == false) {
@@ -39,4 +42,69 @@ var listaGlobal = "";
              });
         });
         
+    }
+
+    function xrud_search($document, $where, $by){
+        let dataRef = firebase.firestore();
+            dataRef.collection($document).where($where, "==", $by)
+        .get()
+        .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            // doc.data() is never undefined for query doc snapshots
+           // console.log(doc.id, " => ", doc.data());
+            let result = JSON.stringify(doc.data());
+            if (xrudDevMode == false) {
+                    xrud_miniController(result);
+                } else {
+                    xrud_debug(result);
+                }
+        });
+        })
+        .catch(function(error) {
+        console.log("Error getting documents: ", error);
+        });
+    }
+
+    function xrud_agenda_horario($document, $where, $by){
+        let dataRef = firebase.firestore();
+            dataRef.collection($document).where($where, "==", $by)
+        .get()
+        .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            // doc.data() is never undefined for query doc snapshots
+           // console.log(doc.id, " => ", doc.data());
+            let result = JSON.stringify(doc.data());
+            if (xrudDevMode == false) {
+                    xrud_horarios_miniController(result);
+                } else {
+                    xrud_debug(result);
+                }
+        });
+        })
+        .catch(function(error) {
+        console.log("Error getting documents: ", error);
+        });
+    }
+
+    function valida_search($document, $where, $by){
+        let dataRef = firebase.firestore();
+            dataRef.collection($document).where($where, "==", $by)
+        .get()
+        .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            // doc.data() is never undefined for query doc snapshots
+           // console.log(doc.id, " => ", doc.data());
+           let reserva = doc.id;
+           localStorage.setItem('agendamento', reserva);
+            let result = JSON.stringify(doc.data());
+            if (xrudDevMode == false) {
+                    xrud_miniController(result);
+                } else {
+                    xrud_debug(result);
+                }
+        });
+        })
+        .catch(function(error) {
+        console.log("Error getting documents: ", error);
+        });
     }

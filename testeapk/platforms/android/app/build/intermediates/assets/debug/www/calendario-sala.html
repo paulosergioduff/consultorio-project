@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Material Design Lite -->
+    <script src="js/material.min.js"></script>
+    <link rel="stylesheet" href="css/material.indigo-pink.min.css">
+    <!-- Roboto Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <!-- Material Design icon font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+      /*7f51b3*/
+      #relogio{
+      background-image: url("images/relogio.jpg");
+      background-repeat: no-repeat;
+      background-position: center;       
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      }
+      #porta{
+      background-image: url("images/porta.png");
+      background-position: center;
+      width: 100%;
+      height: 100%;
+      text-align: center;  
+      }
+      td{
+      background-color: white; color: black;
+      }
+
+      .ui-datepicker-today{
+        color: white !important;
+      }
+
+      .ui-datepicker-current-day{
+      	color: white !important;
+      }
+
+      .btn{color: white !important;
+      	z-index: 9999 !important ;
+      }
+
+      #calendar{
+      	z-index: 9999 !important;
+      }
+
+      .abaixo{
+      	z-index: 9998 !important ;
+      }
+
+      a { color:inherit !important; text-decoration:none !important; font-weight:normal; }
+
+      .table-dark{
+      	z-index: 9999;
+      }
+
+      .btn-extra{
+      	width: 100%;
+      }
+
+
+     
+    </style>
+    <!-- icones externos -->
+    <script src="https://kit.fontawesome.com/a664376c48.js"></script>
+    <!-- baseado em authDemo.html -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
+    <script type="text/javascript" src="js/configFire.js"></script>
+    <!--Dependencia de autentificação -->
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script type="text/javascript">
+      var paginaLogin = false;
+      
+      var faixaHorario = localStorage.getItem('faixahorario');
+
+      
+      
+       //alert(faixaHorario);
+    </script>
+    <!-- Grid CSS -->
+    <link rel="stylesheet" href="css/grid.css">
+    <title>Consultório Hugo Silva</title>
+  </head>
+  <body>
+    <!-- Always shows a header, even in smaller screens. -->
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <!-- Title -->
+          <span class="mdl-layout-title">Sublocações</span>
+          <!-- Add spacer, to align navigation to the right -->
+          <div class="mdl-layout-spacer"></div>
+          <!-- Navigation. We hide it in small screens. -->
+          <nav class="mdl-navigation mdl-layout--large-screen-only">
+            <a class="mdl-navigation__link" href=""></a>
+            <a class="mdl-navigation__link" href=""></a>
+            <a class="mdl-navigation__link" href=""></a>
+            <a class="mdl-navigation__link" href=""></a>
+          </nav>
+        </div>
+      </header>
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Sublocações</span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="escolher.html">Início</a>
+          <a class="mdl-navigation__link" href="ultimosagenda.html">Agendamento</a>
+          <!--<a class="mdl-navigation__link" href="listaDeEmpresas.html">Prontuário</a>-->
+          <!--<a class="mdl-navigation__link" href="">Contrato</a>-->
+          <!--<a class="mdl-navigation__link" href="">Modelo de Documentos</a>-->
+          <a class="mdl-navigation__link" href="">Pagamentos</a>
+          <!--<a class="mdl-navigation__link" href="">Encaminhamento</a>-->
+          <a class="mdl-navigation__link" href="ranking.html">Ranking</a>
+          <a href="#" id="btnLogOut" class="mdl-navigation__link">Sair</a>
+        </nav>
+      </div>
+      <div class="mdl-grid">
+        <div class="mdl-layout-spacer"></div>
+        <div class="mdl-cell mdl-cell--12-col">
+          <!-- CARDS PAINEL -->
+          <!-- Bootstrap CSS -->
+          <link rel="stylesheet" href="lib/bootstrap431.css">
+          <link rel="stylesheet" href="css/app-calendar.css" />
+          <div class="container">
+            <!-- Show jQuery Datepicker here -->
+            <div id="calendar"></div>
+          </div>
+          <!-- Hidden form for taking event response from the user -->
+          <div class="card" id="event-form">
+            <div class="form-group">
+              
+            </div>
+            <div class="form-group">
+              <center><h1>Confirmação</h1></center>
+             
+            </div>
+            <div class="form-group">
+            </div>
+            <div id="recebeData"></div>
+            <div class="form-group">
+              <a href="#" class="btn btn-success" id="submit">Confirmar</a>
+              <a href="#" class="btn btn-danger" id="submit" onclick="$('.card').hide();">Cancelar</a>
+            </div>
+          </div>
+
+          <!-- TABELA DOS QUARTOS -->
+
+
+          <!-- Table to display list of calendar events -->
+          <div class="container" style="display: none;">
+            
+            <table class="table table-dark abaixo" id="no-events-list">
+              <thead>
+                <tr>
+                  <td onclick="selecionarHorario('09');">09:00 AM</td>                  
+                  <td><button class="btn btn-primary btn-extra">Selecionar Horário</button></td>  
+                        
+                </tr>
+
+                <tr>
+                	<td onclick="selecionarHorario('10');">10:00 AM</td> 
+				  <td><button class="btn btn-primary btn-extra">Selecionar Horário</button></td> 
+                </tr>
+
+                <tr>
+                	<td onclick="selecionarHorario('11');">11:00 AM</td>
+                	<td><button class="btn btn-primary btn-extra">Selecionar Horário</button></td>
+                </tr>
+
+                <tr>
+                  <td onclick="selecionarHorario('13');">01:00 PM</td>
+                  <td><button class="btn btn-primary btn-extra">Selecionar Horário</button></td> 
+                </tr>
+
+                <tr>
+                  <td onclick="selecionarHorario('14');">02:00 PM</td>
+                  <td><button class="btn btn-primary btn-extra">Selecionar Horário</button></td> 
+                </tr>
+
+                <tr>
+                  <td onclick="selecionarHorario('16');">04:00 PM</td>
+                  <td><button class="btn btn-primary btn-extra">Selecionar Horário</button></td> 
+                </tr>
+
+                <tr>
+                  <td onclick="selecionarHorario('18');">06:00 PM</td>
+                  <td><button class="btn btn-primary btn-extra">Selecionar Horário</button></td> 
+                </tr>
+
+                <tr>
+                  <td onclick="selecionarHorario('20');">08:00 PM</td>
+                  <td><button class="btn btn-primary btn-extra">Selecionar Horário</button></td> 
+                </tr>
+
+                <tr>
+                  <td onclick="selecionarHorario('22');">10:00 PM</td>
+                  <td><button class="btn btn-primary btn-extra">Selecionar Horário</button></td> 
+                </tr>
+
+                <tr>
+                  <td onclick="selecionarHorario('23');">11:00 PM</td>
+                  <td><button class="btn btn-primary btn-extra">Selecionar Horário</button></td> 
+                </tr>
+
+               
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+
+
+
+
+
+
+          <!-- TABELA DOS QUARTOS -->
+
+
+          <!-- Table to display list of calendar events -->
+
+          <!-- HORÁRIOS DISPONÍVEIS -->
+<script src="js/xrud.js"></script>
+ <center>
+ 	<div id="horarios">
+      </div>
+ </center>
+      <script>
+        var faixaData = localStorage.getItem("dataParaSala");
+        var faixaData = faixaData.replace(/\//g, "-");
+        var salaEscolhida = localStorage.getItem("salaEscolhida");
+        var faixaHorario = localStorage.getItem('faixahorario');
+          
+                  let dataDemo = {
+                              nome: "supermarket", Local: "RJ", country: "USA",
+                              capital: false, population: 1860000 };
+          
+                              function xrud_horarios_miniController($content){
+          
+                              let saida = JSON.parse($content);
+                                       
+            
+                                for(var k in saida) {            
+                                  
+            
+                                   if (k =='faixaAssinatura'){           
+                            
+            
+                                    // VERIFICAÇÃO DE DATA E SALAS
+                                    var horarioAtual = 'h'+saida[k].substr(0, 2);
+                                    var horarioAtualInt = saida[k].substr(0, 2);
+                                    var horarioAtual = horarioAtual.replace("-", "");
+
+                                    
+          
+                                    var horarioMarca = horarioAtual.replace("h", "");
+          
+                                    var marcaData = salaEscolhida+horarioMarca+'-'+faixaData;
+          
+                                    console.log('Espelho: class='+marcaData);
+          
+                                    console.log('Horario: '+horarioAtual);
+                                    var agendados = window.document.getElementById(horarioAtual).innerHTML;
+                                    
+                                   let printed = horarioAtual+':00 H';
+          
+                                    if (agendados != printed) {
+                                      window.document.getElementById(horarioAtual).innerHTML = '<button class="btn btn-danger" onclick="verSalaReservada('+"'"+saida[k]+"'"+');">'+horarioAtualInt+':00 H</button>';
+                                    }
+            
+                                   
+                                   }
+                                }
+                          }
+          
+          
+              for (var i = 9; i <= 22; i++) {
+              	var marcacao = salaEscolhida+i+'-'+faixaData;
+                let conteudo = window.document.getElementById('horarios').innerHTML;
+                window.document.getElementById('horarios').innerHTML = conteudo+' '+'<div id="h'+i+'" style="float: left; margin-right: 2%;margin-bottom: 2%;"><button class="btn btn-success" onclick="checkin('+"'"+marcacao+"'"+');">'+i+':00 H'+'</button></div>';
+                //console.log('Funcionando '+i);
+                console.log("Sala/Horario: "+salaEscolhida+i+'-'+faixaData);
+                let selecaoDaSalaLoop = salaEscolhida+i+'-'+faixaData;
+                xrud_agenda_horario('agendamento', 'assinatura', selecaoDaSalaLoop);
+          
+              }
+
+              function recebeSaida($saida){
+              	alert($saida);
+              }
+              
+      </script>
+    </center>
+
+          <!-- HORÁRIOS DISPONÍVEIS -->
+          <div class="container" style="display: none;">
+            <input id="search" type="text" placeholder="Procurar eventos" class="form-control"/>
+            <table class="table table-dark" id="events-list">
+              <thead>
+                <tr>
+                  <td>Data</td>
+                  <td>Locação</td>
+                  <td>Descrição</td>
+                  <td>Confirmar</td>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <script src="lib/jquery-1.12.4.js"></script>
+          <script src="lib/query-ui-sala.js"></script>
+          <script src="js/app-calendar-sala.js" type="text/javascript"></script>
+          <!-- CARDS PAINEL -->
+          <!-- FIREBASE CRUD -->
+          <!-- content -->
+          <!-- XRUD local -->
+          <center>
+            <div id="output"></div>
+           
+            <div id="style">
+            </div>
+            <script src="js/xrud.js"></script>
+            <script src="js/json2html.js"></script>
+            <script>
+              var listaGlobal = "";
+              var stringReservados = [];
+              var limitesDeQuarto = 4;
+              
+              var salaSelecionada = localStorage.getItem("faixaDaSala");
+
+              
+
+              if (typeof salaSelecionada === "undefined") {
+                localStorage.setItem("faixaDaSala", "s1");
+              } 
+
+              //alert(salaSelecionada);
+
+                                  var reservado = true;
+                                  var listagemString = 0;
+              
+                                  function xrud_miniController($content){
+                                    
+                                  let saida = JSON.parse($content);
+                                         
+              
+                                  for(var k in saida) {            
+                                    
+              
+                                     if (k =='assinatura'){           
+                              
+              
+                                      // VERIFICAÇÃO DE DATA E SALAS
+              
+              
+                                     // console.log(saida[k]+'console');
+                                      let filtroString = saida[k].replace(/\//g, "-");
+                                      let horariosReservados = localStorage.getItem('faixahorario');
+                                      //Aparencia mapa
+                                      let dataString = filtroString;
+                                      var stringReservados = stringReservados + ' ' +dataString + ' ,';
+                                      let pagina = window.document.getElementById('style').innerHTML;
+                                      console.log(dataString+' saida');
+              
+              
+              
+                                      // colocar formato de data igual nos dois arquivos
+                                      // Usar queryString para manipular CSS da classe data
+                                     }
+                                  }
+              
+                               //   alert(stringReservados);
+              
+                                  
+                              }
+                    
+                     function revelarReservadas($strings){
+                        alert($strings);
+                     }
+              
+                      // implementation 
+                  //xrud_search('agendamento', 'Local', 'SP')
+                  //xrud_send('agendamento', 'newdoc', dataDemo);
+                  //xrud_delete('empresas', 'SF');
+                 // xrud_read('agendamento/10/30');
+              
+                 
+                  
+            </script>
+          </center>
+          <!-- content -->    
+          <!-- FIREBASE CRUD -->   
+        </div>
+        <div class="mdl-layout-spacer"></div>
+      </div>
+      <main class="mdl-layout__content">
+        <div class="page-content">
+          <!-- Your content goes here -->
+          <!-- List items with avatar and action -->
+          <style>
+            .demo-list-action {
+            width: 300px;
+            }
+          </style>
+        </div>
+      </main>
+    </div>
+    <!-- Para refatorar: Prazo curto de projeto -->
+    <div style="display: none">
+      <button id="btnLogin" class="btn btn-success" >Login</button><button id="btnSignUp">Cadastro</button><br>
+      <button id="btnLogOut" style="display: none;">Sair</button>
+    </div>
+    <script src="js/appAuth.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript">
+      /*  window.document.getElementById('style').innerHTML = 'Testado <style> .a10-1-2020{ display: none; } </style>';*/
+    </script>
+  </body>
+</html>

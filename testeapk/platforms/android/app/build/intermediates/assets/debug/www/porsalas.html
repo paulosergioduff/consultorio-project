@@ -15,8 +15,17 @@
     <style>
     	/*7f51b3*/
 
+      .btn{
+        width: 100% !important;
+        border-radius: 40%;
+      }
+
+      .mdl-card {
+        border-radius: 20px;
+      }
+
       #salaum{
-        background-image: url("images/Sala1.jpg");
+        background-image: url("images/sala1.jpg");
         background-position: center;  
         width: 100%;
         height: 100%;
@@ -45,6 +54,12 @@
         
       }      
     </style>
+
+    <script type="text/javascript">
+    	function verSala($sala){
+    		alert('ver sala: '+$sala);
+    	}
+    </script>
 
     <!-- icones externos -->
     <script src="https://kit.fontawesome.com/a664376c48.js"></script>
@@ -95,10 +110,11 @@
       <nav class="mdl-navigation">
         <a class="mdl-navigation__link" href="escolher.html">Início</a>
 <a class="mdl-navigation__link" href="ultimosagenda.html">Agendamento</a>
-        <a class="mdl-navigation__link" href="listaDeEmpresas.html">Prontuário</a>
-        <a class="mdl-navigation__link" href="">Contrato</a>
-        <a class="mdl-navigation__link" href="">Modelo de Documentos</a>
-        <a class="mdl-navigation__link" href="">Encaminhamento</a>
+        <!--<a class="mdl-navigation__link" href="listaDeEmpresas.html">Prontuário</a>-->
+        <!--<a class="mdl-navigation__link" href="">Contrato</a>-->
+        <!--<a class="mdl-navigation__link" href="">Modelo de Documentos</a>-->
+<a class="mdl-navigation__link" href="">Pagamentos</a>
+        <!--<a class="mdl-navigation__link" href="">Encaminhamento</a>-->
         <a class="mdl-navigation__link" href="ranking.html">Ranking</a>
 <a href="#" id="btnLogOut" class="mdl-navigation__link">Sair</a>
       </nav>
@@ -112,58 +128,58 @@
 
 <center>
 <!-- Square card -->
-            <div class="mdl-card mdl-shadow--2dp demo-card-square">
+            <div class="mdl-card mdl-shadow--2dp demo-card-square"onclick="reservar('salaEscolhida', 's1')">
             <div id="salaum"> <div class="mdl-card__title mdl-card--expand"></div>
                 <h2 class="mdl-card__title-text"></h2>
                 </div>
                 <div class="mdl-card__supporting-text">
-                Consultório 1
+                Consultório de Psicanálise
                 </div>
                 <div class="mdl-card__actions mdl-card--border">
                 <a class="mdl-button mdl-button--accent mdl-js-button mdl-js-ripple-effect">
-                    Reservar
+                    <button class="btn btn-primary">Ver sala</button>
                     </a>
                 </div>
             </div>
             <!-- Square card -->
-            <div class="mdl-card mdl-shadow--2dp demo-card-square">
+            <div class="mdl-card mdl-shadow--2dp demo-card-square" onclick="reservar('salaEscolhida', 's2')">
               <div id="saladois"><div class="mdl-card__title mdl-card__accent mdl-card--expand"></div>
                 <h2 class="mdl-card__title-text"></h2>
                 </div>
                 <div class="mdl-card__supporting-text">
-                Consultório 2
+                Consultório híbrido
                 </div>
-                <div class="mdl-card__actions mdl-card--border" onclick="reservar('sala2', 'Novo dado gerado hoje')">
+                <div class="mdl-card__actions mdl-card--border" onclick="reservar('salaEscolhida', 's2')">
                 <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                    Reservar
+                    <button class="btn btn-primary">Ver sala</button>
                     </a>
                 </div>
             </div>
             <!-- Square card -->
-            <div class="mdl-card mdl-shadow--2dp demo-card-square">
+            <div class="mdl-card mdl-shadow--2dp demo-card-square" onclick="reservar('salaEscolhida', 's3')">
               <div id="salatres"> <div class="mdl-card__title mdl-card--expand"></div>
                 <h2 class="mdl-card__title-text"></h2>
                 </div>
                 <div class="mdl-card__supporting-text">
-                Consultório 3
+                Gestalt&TCC
                 </div>
                 <div class="mdl-card__actions mdl-card--border">
                 <a class="mdl-button mdl-button--accent mdl-js-button mdl-js-ripple-effect">
-                    Reservar
+                    <button class="btn btn-primary">Ver sala</button>
                     </a>
                 </div>
             </div>
             <!-- Square card -->
-            <div class="mdl-card mdl-shadow--2dp demo-card-square">
+            <div class="mdl-card mdl-shadow--2dp demo-card-square" onclick="reservar('salaEscolhida', 's4')">
               <div id="salaquatro"><div class="mdl-card__title mdl-card--expand"></div>
                 <h2 class="mdl-card__title-text"></h2>
                 </div>
                 <div class="mdl-card__supporting-text">
-                Consultório 4
+                Consultório infantil
                 </div>
                 <div class="mdl-card__actions mdl-card--border">
                 <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                    Reservar
+                    <button class="btn btn-primary">Ver sala</button>
                     </a>
                 </div>
             </div>
@@ -244,7 +260,7 @@
   	function reservar($sala, $store){
   		localStorage.setItem($sala, $store);
   		setTimeout(function() {
-	    		window.location.href = "agendando.html";
+	    		window.location.href = "caroussel.html";
 			}, 1000);
   		//alert($store);
   	}

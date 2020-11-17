@@ -1,0 +1,7 @@
+* Pegar valor assinatura
+* Separar dois primeiros caracteres em manipulação de strings
+
+search com valor do dia e horário
+
+* Caroussel tela cheia 
+* Arredondamento de elementos

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Material Design Lite -->
+    <script src="js/material.min.js"></script>
+    <link rel="stylesheet" href="css/material.indigo-pink.min.css">
+    <!-- Roboto Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <!-- Material Design icon font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <style>
+    	/*7f51b3*/
+
+      #salaum{
+        background-image: url("images/Sala1.jpg");
+       
+        width: 100%;
+        height: 100%;
+        
+      }
+
+       #saladois{
+        background-image: url("images/sala2.jpg");
+       
+        width: 100%;
+        height: 100%;
+        
+      }
+      #salatres{
+        background-image: url("images/sala3.jpg");
+       
+        width: 100%;
+        height: 100%;
+        
+      }
+      #salaquatro{
+        background-image: url("images/sala4.jpg");
+       
+        width: 100%;
+        height: 100%;
+        
+      }      
+    </style>
+
+    <!-- icones externos -->
+    <script src="https://kit.fontawesome.com/a664376c48.js"></script>
+
+        	<!-- baseado em authDemo.html -->
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
+<script type="text/javascript" src="js/configFire.js"></script>
+<!--Dependencia de autentificação -->
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+
+<script type="text/javascript">
+  var paginaLogin = false;
+</script>
+
+
+    <!-- Grid CSS -->
+    <link rel="stylesheet" href="css/grid.css">
+
+    
+    <title>Consultório Hugo Silva</title>
+</head>
+<body>
+
+      <!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <!-- Title -->
+        <span class="mdl-layout-title">Sublocações</span>
+        <!-- Add spacer, to align navigation to the right -->
+        <div class="mdl-layout-spacer"></div>
+        <!-- Navigation. We hide it in small screens. -->
+        <nav class="mdl-navigation mdl-layout--large-screen-only">
+          <a class="mdl-navigation__link" href=""></a>
+          <a class="mdl-navigation__link" href=""></a>
+          <a class="mdl-navigation__link" href=""></a>
+          <a class="mdl-navigation__link" href=""></a>
+        </nav>
+      </div>
+    </header>
+    <div class="mdl-layout__drawer">
+      <span class="mdl-layout-title">Sublocações</span>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="escolher.html">Início</a>
+<a class="mdl-navigation__link" href="ultimosagenda.html">Agendamento</a>
+        <!--<a class="mdl-navigation__link" href="listaDeEmpresas.html">Prontuário</a>-->
+        <!--<a class="mdl-navigation__link" href="">Contrato</a>-->
+        <!--<a class="mdl-navigation__link" href="">Modelo de Documentos</a>-->
+<a class="mdl-navigation__link" href="">Pagamentos</a>
+        <!--<a class="mdl-navigation__link" href="">Encaminhamento</a>-->
+        <a class="mdl-navigation__link" href="ranking.html">Ranking</a>
+<a href="#" id="btnLogOut" class="mdl-navigation__link">Sair</a>
+      </nav>
+    </div>
+
+   <div class="mdl-grid">
+    <div class="mdl-layout-spacer"></div>
+    <div class="mdl-cell mdl-cell--5-col">
+    	
+<!-- CARDS PAINEL -->
+
+
+  
+<link rel="apple-touch-icon" type="image/png" href="https://static.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+<meta name="apple-mobile-web-app-title" content="CodePen">
+
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet"> 
+  
+<link rel="stylesheet" type="text/css" href="css/calendar-bootstrap.css">
+<link rel='stylesheet' href='https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css'>
+<link rel='stylesheet' href='css/datapicker.css'>
+  
+<link rel="stylesheet" type="text/css" href="css/style-calendar.css">
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
+  <div class="p-5">
+  <h2 class="mb-4">Full Calendar</h2>
+  <div class="card">
+    <div class="card-body p-0">
+      <div id="calendar"></div>
+    </div>
+  </div>
+</div>
+
+<!-- calendar modal -->
+<div id="modal-view-event" class="modal modal-top fade calendar-modal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h4 class="modal-title"><span class="event-icon"></span><span class="event-title"></span></h4>
+          <div class="event-body"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div id="modal-view-event-add" class="modal modal-top fade calendar-modal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <form id="add-event">
+        <div class="modal-body">
+        <h4>Add Event Detail</h4>        
+          <div class="form-group">
+            <label>Event name</label>
+            <input type="text" class="form-control" name="ename">
+          </div>
+          <div class="form-group">
+            <label>Event Date</label>
+            <input type='text' class="datetimepicker form-control" name="edate">
+          </div>        
+          <div class="form-group">
+            <label>Event Description</label>
+            <textarea class="form-control" name="edesc"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Event Color</label>
+            <select class="form-control" name="ecolor">
+              <option value="fc-bg-default">fc-bg-default</option>
+              <option value="fc-bg-blue">fc-bg-blue</option>
+              <option value="fc-bg-lightgreen">fc-bg-lightgreen</option>
+              <option value="fc-bg-pinkred">fc-bg-pinkred</option>
+              <option value="fc-bg-deepskyblue">fc-bg-deepskyblue</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Event Icon</label>
+            <select class="form-control" name="eicon">
+              <option value="circle">circle</option>
+              <option value="cog">cog</option>
+              <option value="group">group</option>
+              <option value="suitcase">suitcase</option>
+              <option value="calendar">calendar</option>
+            </select>
+          </div>        
+      </div>
+        <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" >Save</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>        
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+    <script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js'></script>
+<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/js/datepicker.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/js/i18n/datepicker.en.js'></script>
+  
+      <script id="rendered-js" src="js/render-calendar.js" >
+
+    </script>
+
+  
+
+</body>
+
+</html>
+ 
+
+
+<!-- CARDS PAINEL -->
+
+
+
+    </div>
+    <div class="mdl-layout-spacer"></div>
+</div>
+
+
+    <main class="mdl-layout__content">
+      <div class="page-content"><!-- Your content goes here -->
+      
+        <!-- List items with avatar and action -->
+<style>
+  .demo-list-action {
+    width: 300px;
+  }
+  </style>
+  
+ <!-- content -->
+
+
+
+        <center>
+            <h1></h1>
+
+            <!-- autocomplete -->
+                          
+
+                    <script>
+
+                    var options = {
+                      data: ["blue", "green", "pink", "red", "yellow"],
+
+                    };
+
+                    $("#simple").easyAutocomplete(options);
+
+                    </script>
+                    
+                    <br>
+            <!-- autocomplete -->
+                        <!-- List items with avatar and action -->
+            
+            
+            
+            </div>
+        </center>            
+  
+   <!-- content -->    
+      
+      </div>
+    </main>
+  </div>
+
+  <!-- Para refatorar: Prazo curto de projeto -->
+  <div style="display: none">
+      <button id="btnLogin" class="btn btn-success" >Login</button><button id="btnSignUp">Cadastro</button><br>
+      <button id="btnLogOut" style="display: none;">Sair</button>
+  </div>
+
+  <script src="js/appAuth.js"></script>
+  
+
+
+
+
+</body>
+</html>
