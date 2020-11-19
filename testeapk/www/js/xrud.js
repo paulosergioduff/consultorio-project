@@ -108,3 +108,26 @@ var listaGlobal = "";
         console.log("Error getting documents: ", error);
         });
     }
+
+    function valida_cadastro($document, $where, $by){
+        let dataRef = firebase.firestore();
+            dataRef.collection($document).where($where, "==", $by)
+        .get()
+        .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            // doc.data() is never undefined for query doc snapshots
+           // console.log(doc.id, " => ", doc.data());
+           let reserva = doc.id;
+           localStorage.setItem('cadastro', reserva);
+            let result = JSON.stringify(doc.data());
+            if (xrudDevMode == false) {
+                    xrud_miniController(result);
+                } else {
+                    xrud_debug(result);
+                }
+        });
+        })
+        .catch(function(error) {
+        alert("Error getting documents: ", error);
+        });
+    }

@@ -41,3 +41,25 @@
 
  * Relógio gráfico analógico
  * Opção Wizard para agendamento
+
+ Ajustes:
+ * Tela inteira (caroussel/deslizar escolha de sala/horário)
+ * Mesmo caroussel para visualização de fotos de sala
+ * Centralização de elementos
+ * Completar cadastro de usuário
+ * Completar cadastro de salas
+ * Carregamento dados pendentes
+ * Configuração de servidor central
+ * Inclusão de horários (Admin e usuários)
+ * Ajuste do calendário (dimensões)
+ * Ajustar Agendamentos para "Meus agendamentos"
+ * Atalhos de agendamento pelo menu
+ * Gerar relatórios cobrança na parte superior da tela
+ * Geração de boleto em qualquer época do mês
+
+ Atualizações:
+
+ * Laudos
+ * Quem está hospedado (menu/ relatório do dia)
+ * Relógio
+ * Wifi

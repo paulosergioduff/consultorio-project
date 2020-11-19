@@ -56,6 +56,47 @@
                   	                 
                 }
 
+      function confirmaCadastro($data){
+
+    let faixaDeHorario = localStorage.getItem("faixahorario");
+    let faixaDaSala = localStorage.getItem("faixaDaSala");
+
+          $data = faixaDeHorario+'-'+$data.replace(/\//g, "-");
+          let quartoAtual = faixaDaSala;
+          let assinaturaOriginal = $data; 
+                 $data = quartoAtual+$data;
+
+                  var dataDemo = {
+                                email: $data, nome: "João", Local: "SP", country: "validando sobreescrendo fdfdixom 23e agora? novidade com false agora confirmando novo usado em app.js central",
+                                capital: false, population: 1860000, assinatura: $data, faixaAssinatura: assinaturaOriginal };
+
+                 valida_cadastro('cadastro', 'nome', $data);
+                 
+                // alert('Reserva: '+resultadoReserva+' - Data: '+$data);
+                 //xrud_read('agendamento');
+
+                 setTimeout( function() {
+
+                 let resultadoReserva = localStorage.getItem('cadastro');
+
+          if (resultadoReserva == $data) {
+                  xrud_send('cadastro', $data, dataDemo);
+                  // Se o número dessa data acumulada na variável, for igual ao número de salas
+                  // disponíveis, executar comando abaixo (complementar cadastro de salas)
+                  alert('Completando cadastro: '+$data);
+                  
+                 }
+                  else{
+                    alert('Seu cadastro já está completo'+$data+' - r:'+resultadoReserva);
+                    // Aumentar 1 variável n++ para a pesquisa
+                  }
+        }, 500 );         
+
+                       
+                 //xrud_send('agendamento', $data, dataDemo);
+                                     
+                }
+
       function confirmarDia($dia){
       	window.document.getElementById('recebeData').innerHTML = '<center><h1>Deseja reservar esse dia: '+$dia+'?</h1><center>';
       }
