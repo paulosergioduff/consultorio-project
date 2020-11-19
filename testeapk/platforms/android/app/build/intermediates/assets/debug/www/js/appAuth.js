@@ -6,6 +6,10 @@
 			const btnLogOut = document.getElementById('btnLogOut');
 			//const txt  = document.getElementById('txt');
 
+		//Elementos de cadastro
+
+		const txtCampoExtra = document.getElementById('txtCampoExtra');
+
 		// Eventos de login
 			btnLogin.addEventListener('click', e => {
 
@@ -13,6 +17,8 @@
 			const email = txtEmail.value;
 			const pass = txtPassword.value;
 			const auth = firebase.auth();
+
+
 			
 			// Login
 			const promise = auth.signInWithEmailAndPassword(email, pass);
@@ -27,12 +33,21 @@
 			const email = txtEmail.value;
 			const pass = txtPassword.value;
 			const auth = firebase.auth();
+
+			// Pega outros campos de cadastro
+
+			const campoExtra = txtCampoExtra.value;
+
+
+			//alert(campoExtra);
+
+			//confirmaCadastro(campoExtra);
 			
 			// Login
 			const promise = auth.createUserWithEmailAndPassword(email, pass);
 			promise
-			.then(user => console.log(user))
-			.catch(e => console.log(e.message));
+			.then(user => conseguiuSeCadastrar(user, email))
+			.catch(e => recusaDeCadastro(e.message));
 
 			});
 
@@ -71,5 +86,14 @@
 					}
 				}
 		})
+
+		function conseguiuSeCadastrar($user, $email){
+			localStorage.setItem("sys_user", $email);
+			alert('Conseguiu se cadastrar '+$email);
+		}
+
+		function recusaDeCadastro($erro){
+			alert('Cadastro recusado: '+$erro);
+		}
 
 		
