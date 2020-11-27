@@ -61,10 +61,9 @@
     let faixaDeHorario = localStorage.getItem("faixahorario");
     let faixaDaSala = localStorage.getItem("faixaDaSala");
 
-          $data = faixaDeHorario+'-'+$data.replace(/\//g, "-");
+          //$data = faixaDeHorario+'-'+$data.replace(/\//g, "-");
           let quartoAtual = faixaDaSala;
           let assinaturaOriginal = $data; 
-                 $data = quartoAtual+$data;
 
                   var dataDemo = {
                                 email: $data, nome: "João", Local: "SP", country: "validando sobreescrendo fdfdixom 23e agora? novidade com false agora confirmando novo usado em app.js central",
@@ -79,15 +78,16 @@
 
                  let resultadoReserva = localStorage.getItem('cadastro');
 
-          if (resultadoReserva == $data) {
-                  xrud_send('cadastro', $data, dataDemo);
+          if (resultadoReserva != $data) {
+                  //xrud_send('cadastro', $data, dataDemo);
                   // Se o número dessa data acumulada na variável, for igual ao número de salas
                   // disponíveis, executar comando abaixo (complementar cadastro de salas)
                   alert('Completando cadastro: '+$data);
-                  
+                    window.location.href = "completar-cadastro.html";
+                 
                  }
                   else{
-                    alert('Seu cadastro já está completo'+$data+' - r:'+resultadoReserva);
+                    console.log('Seu cadastro já está completo '+resultadoReserva);
                     // Aumentar 1 variável n++ para a pesquisa
                   }
         }, 500 );         

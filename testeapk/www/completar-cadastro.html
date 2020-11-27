@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Material Design Lite -->
+    <script src="js/material.min.js"></script>
+    <link rel="stylesheet" href="css/material.indigo-pink.min.css">
+    <!-- Roboto Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <!-- Material Design icon font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- icones externos -->
+    <script src="https://kit.fontawesome.com/a664376c48.js"></script>
+
+        	<!-- baseado em authDemo.html -->
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
+<script type="text/javascript" src="js/configFire.js"></script>
+<!--Dependencia de autentificação -->
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="js/json2html.js"></script>
+
+<script type="text/javascript">
+  var paginaLogin = false;
+</script>
+
+
+    <!-- Grid CSS -->
+    <link rel="stylesheet" href="css/grid.css">
+
+    
+    <title>Document</title>
+</head>
+<body>
+
+      <!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <!-- Title -->
+        <img src="images/logo-menu.png" style="border-radius: 100%; height: 65px; width: 65px;">
+        <!-- Add spacer, to align navigation to the right -->
+        <div class="mdl-layout-spacer"></div>
+        <!-- Navigation. We hide it in small screens. -->
+        <nav class="mdl-navigation mdl-layout--large-screen-only">
+          <a class="mdl-navigation__link" href=""></a>
+          <a class="mdl-navigation__link" href=""></a>
+          <a class="mdl-navigation__link" href=""></a>
+          <a class="mdl-navigation__link" href=""></a>
+        </nav>
+      </div>
+    </header>
+    <div class="mdl-layout__drawer">
+      <img src="images/logo-menu.png" style="border-radius: 100%; height: 65px; width: 65px;">
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="escolher.html">Início</a>
+<a class="mdl-navigation__link" href="listar.html">Agendamento</a>
+        <!--<a class="mdl-navigation__link" href="listaDeEmpresas.html">Prontuário</a>-->
+        <!--<a class="mdl-navigation__link" href="">Contrato</a>-->
+        <!--<a class="mdl-navigation__link" href="">Modelo de Documentos</a>-->
+<a class="mdl-navigation__link" h<div class="mdl-card-square mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title">
+      <h2 class="mdl-card__title-text">Registration</h2>
+      </div>
+      <div class="mdl-card__supporting-text">
+        <form action="#" onsubmit="return validateForm()">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" id="name">
+              <label class="mdl-textfield__label" for="name">Full Name</label>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="email" id="email">
+              <label class="mdl-textfield__label" for="email">Email</label>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="password" id="password">
+              <label class="mdl-textfield__label" for="password">Password</label>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="password" id="repassword">
+              <label class="mdl-textfield__label" for="repassword">Retype   Password</label>
+          </div>
+          <span class="mdl-title">Gender : </span>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="male">
+              <input type="radio" id="male" class="mdl-radio__button" name="options" value="male">
+              <span class="mdl-radio__label">Male</span>
+            </label>
+            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="female">
+              <input type="radio" id="female" class="mdl-radio__button" name="options" value="female">
+              <span class="mdl-radio__label">Female</span>
+            </label>
+          </div>
+          <div class="mdl-card__actions mdl-card--border">
+          <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+          Sign Up
+          </button>
+        </form>
+        </div>ref="">Pagamentos</a>
+        <!--<a class="mdl-navigation__link" href="">Encaminhamento</a>-->
+        <a class="mdl-navigation__link" href="">Ranking</a>
+<a href="#" id="btnLogOut" class="mdl-navigation__link">Sair</a>
+      </nav>
+    </div>
+    <main class="mdl-layout__content">
+
+
+      <!-- content SCRIPT XRUD-->
+
+        <center>
+                <div id="output"></div>
+
+                <script src="js/xrud.js"></script>
+                <script>
+            var listaGlobal = "";
+
+            var nomeDoDocumento = localStorage.getItem("sys_user");
+
+            
+                 
+            
+                   
+            
+                    // implementation 
+                //xrud_send('cadastro', nomeDoDocumento, dataDemo);
+                //xrud_delete('empresas', 'SF');
+                //xrud_read('empresas');
+                </script>
+        </center>            
+  
+   <!-- content FIM DO SCRIPT XRUD-->  
+
+
+
+
+              <script>
+function validateForm() {
+  var nomeform = document.forms["myForm"]["fname"].value;
+  var emailform = document.forms["myForm"]["femail"].value;
+  var celularform = document.forms["myForm"]["fcelular"].value;
+  var crpform = document.forms["myForm"]["CRP"].value;
+  var abordagem = document.forms["myForm"]["fabordagem"].value;
+
+
+  if (nomeform == "") {
+    alert("Falta campos obrigatórios");
+    return false;
+  }
+
+  if (emailform == "") {
+    alert("Falta campos obrigatórios");
+    return false;
+  }
+
+  if (celularform == "") {
+    alert("Falta campos obrigatórios");
+    return false;
+  }
+
+  if (crpform == "") {
+    alert("Falta campos obrigatórios");
+    return false;
+  }
+
+  if (abordagem == "") {
+    alert("Falta campos obrigatórios");
+    return false;
+  }
+
+   let dataDemo = {
+                                nome: nomeform, celular: celularform, crp: crpform,
+                                abord: abordagem };
+            
+                                function xrud_miniController($content){
+                                
+                                var html = json2html.transform($content,{'<>':'h3','html': '${nome}'});
+                                var html = html+json2html.transform($content,{'<>':'li','html': '${Local}'})+'<hr>';
+                                var htmlFinal = window.document.getElementById('output').innerHTML = listaGlobal+html;
+                                listaGlobal = htmlFinal;
+                            }
+
+  alert(nomeform+' '+celularform+' '+crpform+' '+abordagem);
+    
+}
+</script>
+
+
+
+
+      <div class="page-content">
+
+        <div class="mdl-card-square mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title">
+      <h2 class="mdl-card__title-text">Complete seu cadastro</h2>
+      </div>
+      <div class="mdl-card__supporting-text">
+        <form name="myForm" action="escolher.html" onsubmit="return validateForm();" method="post">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" name="fname" placeholder="Nome completo">
+          </div>
+
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" name="femail" placeholder="E-mail ">
+          </div>
+
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" name="fcelular" placeholder="Celular">
+          </div>
+
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" name="CRP" placeholder="CRP">
+          </div>
+
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" name="fabordagem" placeholder="Abordagem">
+          </div>
+         
+         
+          </div>
+          <div class="mdl-card__actions mdl-card--border">
+          <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+          Completar cadastro
+          </button>
+        </form>
+        </div>
+
+        <!-- Fim do formulário -->
+<style>
+  .demo-list-action {
+    width: 300px;
+  }
+  </style>
+  
+   
+      
+      </div>
+    </main>
+  </div>
+
+  <!-- Para refatorar: Prazo curto de projeto -->
+  <div style="display: none">
+      <button id="btnLogin" class="btn btn-success" >Login</button><button id="btnSignUp">Cadastro</button><br>
+      <button id="btnLogOut" style="display: none;">Sair</button>
+  </div>
+
+  <script src="js/appAuth.js"></script>
+  
+</body>
+</html>

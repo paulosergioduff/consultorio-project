@@ -8,7 +8,6 @@
 
 		//Elementos de cadastro
 
-		const txtCampoExtra = document.getElementById('txtCampoExtra');
 
 		// Eventos de login
 			btnLogin.addEventListener('click', e => {
@@ -35,8 +34,6 @@
 			const auth = firebase.auth();
 
 			// Pega outros campos de cadastro
-
-			const campoExtra = txtCampoExtra.value;
 
 
 			//alert(campoExtra);
