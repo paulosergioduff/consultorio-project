@@ -13,7 +13,8 @@
 
     <title>Document</title>
 </head>
-<body>
+<link rel="stylesheet" type="text/css" href="css/molde.css">
+   <body id="containerGeral">
     
     <div id="output"></div>
 
@@ -27,8 +28,8 @@ var listaGlobal = "";
 
                     function xrud_miniController($content){
                     
-                    var html = json2html.transform($content,{'<>':'h3','html': '${nome}'});
-                    var html = html+json2html.transform($content,{'<>':'li','html': '${Local}'})+'<hr>';
+                    var html = json2html.transform($content,{'<>':'h3','html': '${capital}'});
+                    var html = html+json2html.transform($content,{'<>':'li','html': '${assinatura}'})+'<hr>';
                     var htmlFinal = window.document.getElementById('output').innerHTML = listaGlobal+html;
                     listaGlobal = htmlFinal;
                 }
@@ -38,7 +39,7 @@ var listaGlobal = "";
         // implementation 
     //xrud_send('empresas', 'supermarket2', dataDemo);
     //xrud_delete('empresas', 'supermarket2');
-    //xrud_read('empresas');
+    xrud_read('agendamento');
     </script>
 
 

@@ -12,6 +12,14 @@
     <!-- Material Design icon font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
+    <script type="text/javascript" src="js/configFire.js"></script>
+    <!--Dependencia de autentificação -->
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
+    <script src="js/xrud.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+
     <style>
     	/*7f51b3*/
 
@@ -61,7 +69,8 @@
     
     <title>Consultório Hugo Silva</title>
 </head>
-<body>
+<link rel="stylesheet" type="text/css" href="css/molde.css">
+   <body id="containerGeral">
 
       <!-- Always shows a header, even in smaller screens. -->
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -84,7 +93,7 @@
       <img src="images/logo-menu.png" style="border-radius: 100%; height: 65px; width: 65px;">
       <nav class="mdl-navigation">
         <a class="mdl-navigation__link" href="escolher.html">Início</a>
-<a class="mdl-navigation__link" href="ultimosagenda.html">Agendamento</a>
+<a class="mdl-navigation__link" href="ultimosagenda.html">Meus agendamentos</a>
         <!--<a class="mdl-navigation__link" href="listaDeEmpresas.html">Prontuário</a>-->
         <!--<a class="mdl-navigation__link" href="">Contrato</a>-->
         <!--<a class="mdl-navigation__link" href="">Modelo de Documentos</a>-->
@@ -109,7 +118,7 @@
   <p>Horário: <span id="horario"></span>
   <p>Sala: <span id="sala"></span>
   <p>Data: <span id="data"></span>
-  <button class="btn btn-success">Finalizar</button>
+  <p id="btn_finalizar"></p>
 </center>
 
 
@@ -117,13 +126,31 @@
 </div>
 
 <script type="text/javascript">
-        var faixaData = localStorage.getItem("dataParaSala");
+        var faixaData = localStorage.getItem("checkin");
         var faixaData = faixaData.replace(/\//g, "-");
-        var salaEscolhida = localStorage.getItem("salaEscolhida");
+        var faixaData = faixaData.replace("01-", "1-");
+        var faixaData = faixaData.replace("02-", "2-");
+        var faixaData = faixaData.replace("03-", "3-");
+        var faixaData = faixaData.replace("04-", "4-");
+        var faixaData = faixaData.replace("05-", "5-");
+        var faixaData = faixaData.replace("06-", "6-");
+        var faixaData = faixaData.replace("07-", "7-");
+        var faixaData = faixaData.replace("08-", "8-");
+        var faixaData = faixaData.replace("09-", "9-");
+        var salaEscolhida = localStorage.getItem("faixaDaSala");
         var faixaHorario = localStorage.getItem('faixahorario');
         window.document.getElementById('horario').innerHTML = faixaHorario;
         window.document.getElementById('sala').innerHTML = salaEscolhida;
         window.document.getElementById('data').innerHTML = faixaData;
+
+        var arquivoFinal = salaEscolhida+faixaHorario+'-'+faixaData;
+
+       alert(arquivoFinal+' <-saida');
+
+       
+       //<button class="btn btn-success">Finalizar</button>
+       window.document.getElementById('btn_finalizar').innerHTML = '<button class="btn btn-success" onclick="agendarApp('+"'"+arquivoFinal+"'"+');">Finalizar</button>';
+
 
 
 </script>

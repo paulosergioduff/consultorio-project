@@ -118,7 +118,7 @@ var listaGlobal = "";
             // doc.data() is never undefined for query doc snapshots
            // console.log(doc.id, " => ", doc.data());
            let reserva = doc.id;
-           localStorage.setItem('cadastro', reserva);
+           localStorage.setItem('cadastro', "dic");
             let result = JSON.stringify(doc.data());
             if (xrudDevMode == false) {
                     xrud_miniController(result);

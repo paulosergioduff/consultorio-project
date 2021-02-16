@@ -44,9 +44,7 @@
       	z-index: 9999 !important ;
       }
 
-      #calendar{
-      	z-index: 9999 !important;
-      }
+  
 
       .abaixo{
       	z-index: 9998 !important ;
@@ -88,7 +86,8 @@
     <link rel="stylesheet" href="css/grid.css">
     <title>Consultório Hugo Silva</title>
   </head>
-  <body>
+  <link rel="stylesheet" type="text/css" href="css/molde.css">
+   <body id="containerGeral">
     <!-- Always shows a header, even in smaller screens. -->
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
       <header class="mdl-layout__header">
@@ -110,7 +109,7 @@
         <img src="images/logo-menu.png" style="border-radius: 100%; height: 65px; width: 65px;">
         <nav class="mdl-navigation">
           <a class="mdl-navigation__link" href="escolher.html">Início</a>
-          <a class="mdl-navigation__link" href="ultimosagenda.html">Agendamento</a>
+          <a class="mdl-navigation__link" href="ultimosagenda.html">Meus agendamentos</a>
           <!--<a class="mdl-navigation__link" href="listaDeEmpresas.html">Prontuário</a>-->
           <!--<a class="mdl-navigation__link" href="">Contrato</a>-->
           <!--<a class="mdl-navigation__link" href="">Modelo de Documentos</a>-->
@@ -120,24 +119,20 @@
           <a href="#" id="btnLogOut" class="mdl-navigation__link">Sair</a>
         </nav>
       </div>
-      <div class="mdl-grid">
-        <div class="mdl-layout-spacer"></div>
-        <div class="mdl-cell mdl-cell--12-col">
+
+        
           <!-- CARDS PAINEL -->
           <!-- Bootstrap CSS -->
           <link rel="stylesheet" href="lib/bootstrap431.css">
           <link rel="stylesheet" href="css/app-calendar.css" />
-          <div class="container">
-            <!-- Show jQuery Datepicker here -->
-            <div id="calendar"></div>
-          </div>
+           <div id="calendar" ></div>
           <!-- Hidden form for taking event response from the user -->
-          <div class="card" id="event-form">
+          <div class="card" id="event-form" style="z-index: 9999 !important;">
             <div class="form-group">
               
             </div>
             <div class="form-group">
-              <center><h1>Confirmação</h1></center>
+              <center><h4>Confirmação</h4></center>
              
             </div>
             <div class="form-group">

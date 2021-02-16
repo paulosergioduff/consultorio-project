@@ -1,11 +1,11 @@
 [
     {
-        "merged": "/home/consultorio-project/testeapk/platforms/android/app/build/intermediates/res/merged/debug/mipmap-mdpi_icon.png.flat",
-        "source": "/home/consultorio-project/testeapk/platforms/android/app/src/main/res/mipmap-mdpi/icon.png"
-    },
-    {
         "merged": "/projeto/consultorio-project/testeapk/platforms/android/app/build/intermediates/res/merged/debug/drawable-land-ldpi_screen.png.flat",
         "source": "/projeto/consultorio-project/testeapk/platforms/android/app/src/main/res/drawable-land-ldpi/screen.png"
+    },
+    {
+        "merged": "/home/consultorio-project/testeapk/platforms/android/app/build/intermediates/res/merged/debug/mipmap-mdpi_icon.png.flat",
+        "source": "/home/consultorio-project/testeapk/platforms/android/app/src/main/res/mipmap-mdpi/icon.png"
     },
     {
         "merged": "/projeto/consultorio-project/testeapk/platforms/android/app/build/intermediates/res/merged/debug/mipmap-xhdpi_icon.png.flat",
