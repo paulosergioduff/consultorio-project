@@ -71,7 +71,8 @@
     
     <title>Consultório Hugo Silva</title>
 </head>
-<body>
+<link rel="stylesheet" type="text/css" href="css/molde.css">
+   <body id="containerGeral">
 
       <!-- Always shows a header, even in smaller screens. -->
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -94,7 +95,7 @@
       <img src="images/logo-menu.png" style="border-radius: 100%; height: 65px; width: 65px;">
       <nav class="mdl-navigation">
         <a class="mdl-navigation__link" href="escolher.html">Início</a>
-<a class="mdl-navigation__link" href="ultimosagenda.html">Agendamento</a>
+<a class="mdl-navigation__link" href="ultimosagenda.html">Meus agendamentos</a>
         <!--<a class="mdl-navigation__link" href="listaDeEmpresas.html">Prontuário</a>-->
         <!--<a class="mdl-navigation__link" href="">Contrato</a>-->
         <!--<a class="mdl-navigation__link" href="">Modelo de Documentos</a>-->
@@ -113,28 +114,9 @@
 <!-- CARDS PAINEL -->
 
 <!-- Colored raised button -->
-<h1>09:00 <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style="width: 400px;" onclick="escolheFaixaDeHorario(9)">
-  Button
-</button>
+<div id="faixasDeHorariosAplicaveis">
 
-</h1>
-
-<p>
-
-
-  <h1>10:00 <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style="width: 400px;" onclick="escolheFaixaDeHorario(10)">
-  Button
-</button>
-
-</h1>
-
-<p>
-
-  <h1>11:00 <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style="width: 400px;" onclick="escolheFaixaDeHorario(11)">
-  Button
-</button>
-
-</h1>
+</div>
 
 <p>
 
@@ -144,7 +126,17 @@
 
 <p>
 
+<script type="text/javascript">
+  
 
+  for (var i = 23; i >= 0; i--) {
+    let content = window.document.getElementById('faixasDeHorariosAplicaveis').innerHTML;
+
+    window.document.getElementById('faixasDeHorariosAplicaveis').innerHTML = content+'<h1>'+i+':00 <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style="width: 400px;" onclick="escolheFaixaDeHorario('+i+')">Selecionar</button>';
+  }
+
+
+</script>
 
     
 <!-- CARDS PAINEL -->

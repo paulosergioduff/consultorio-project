@@ -20,10 +20,10 @@
   	let faixaDeHorario = localStorage.getItem("faixahorario");
   	let faixaDaSala = localStorage.getItem("faixaDaSala");
 
-  				$data = faixaDeHorario+'-'+$data.replace(/\//g, "-");
+  				$data = $data.replace(/\//g, "-");
   				let quartoAtual = faixaDaSala;
   				let assinaturaOriginal = $data; 
-                 $data = quartoAtual+$data;
+                 //$data = quartoAtual+$data;
 
                   var dataDemo = {
                                 nome: "João", Local: "SP", country: "validando sobreescrendo fdfdixom 23e agora? novidade com false agora confirmando novo usado em app.js central",
@@ -144,6 +144,7 @@
    }
 
    function checkin($assinatura){
+    alert($assinatura);
       localStorage.setItem("checkin", $assinatura);
       setTimeout( function() {
 
