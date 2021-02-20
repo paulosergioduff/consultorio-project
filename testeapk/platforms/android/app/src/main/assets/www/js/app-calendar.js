@@ -25,7 +25,7 @@ $(document).ready(function () {
         var desc = $('#desc-field').val();
         var remindBefore = $('#remind-field').val();
         $('#events-list').find('tbody').append(
-            "<tr><td>" + currentDate + "</td><td>" + name + "</td><td>" + desc + "</td><td><button class='btn btn-success' onclick='checkin("+'"'+currentDate+'"'+',"'+name+'","'+desc+'"'+")'>Agendar</button></td></tr>"
+            "<tr><td>" + currentDate + "</td><td>" + name + "</td><td>" + desc + "</td><td><button class='btn btn-success' onclick='checkin("+'"'+currentDate+'"'+',"'+name+'","'+desc+'"'+")'>Agentar</button></td></tr>"
         );
         checkin(currentDate)
         $('#name-field').val("");

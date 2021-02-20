@@ -36,12 +36,19 @@ table tbody+tbody {
 table,
 table td,
 table th {
-    border: 1px solid #dee2e6
+    border-bottom: 1px solid #000000;
 }
+
+/*table, table td, table th {
+     border-bottom: 1px solid #dee2e6 !important; 
+    width: 20px !important;
+}
+*/
 
 table thead td,
 table thead th {
-    border-bottom-width: 2px
+    border-bottom-width: 2px;
+    width: 32px;
 }
 
 .ui-datepicker-next,
