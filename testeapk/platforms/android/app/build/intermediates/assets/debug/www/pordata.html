@@ -1,126 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <!-- Material Design Lite -->
-      <script src="js/material.min.js"></script>
-      <link rel="stylesheet" href="css/material.indigo-pink.min.css">
-      <!-- Roboto Font -->
-      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-      <!-- Material Design icon font -->
-      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-      <style>
-         /*7f51b3*/
-         #relogio{
-         background-image: url("images/relogio.jpg");
-         background-repeat: no-repeat;
-         background-position: center;       
-         width: 100%;
-         height: 100%;
-         text-align: center;
-         }
-         #porta{
-         background-image: url("images/porta.png");
-         background-position: center;
-         width: 100%;
-         height: 100%;
-         text-align: center;  
-         }
-         td{
-         background-color: white; color: black;
-         }
-         .ui-datepicker-today{
-         color: white !important;
-         }
-         .ui-datepicker-current-day{
-         color: white !important;
-         }
-         .btn{color: white !important;
-         z-index: 9999 !important ;
-         }
-         #calendar{
-         z-index: 9999 !important;
-         }
-         .abaixo{
-         z-index: 9998 !important ;
-         }
-         a { color:inherit !important; text-decoration:none !important; font-weight:normal; }
-         .table-dark{
-         z-index: 9999;
-         }
-         .btn-extra{
-         width: 100%;
-         }
-      </style>
-      <!-- icones externos -->
-      <script src="https://kit.fontawesome.com/a664376c48.js"></script>
-      <!-- baseado em authDemo.html -->
-      <!-- The core Firebase JS SDK is always required and must be listed first -->
-      <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
-      <script type="text/javascript" src="js/configFire.js"></script>
-      <!--Dependencia de autentificação -->
-      <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
-      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-      <script type="text/javascript">
-         var paginaLogin = false;
-         
-         var faixaHorario = localStorage.getItem('faixahorario');
-         
-          //alert(faixaHorario);
-      </script>
-      <!-- Grid CSS -->
-      <link rel="stylesheet" href="css/grid.css">
-      <title>Consultório Hugo Silva</title>
-   </head>
-   <link rel="stylesheet" type="text/css" href="css/molde.css">
-   <body id="containerGeral">
-      <!-- Always shows a header, even in smaller screens. -->
-      <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-         <header class="mdl-layout__header">
-            <div class="mdl-layout__header-row">
-               <!-- Title -->
-               <img src="images/logo-menu.png" style="border-radius: 100%; height: 65px; width: 65px;">
-               <!-- Add spacer, to align navigation to the right -->
-               <div class="mdl-layout-spacer"></div>
-               <!-- Navigation. We hide it in small screens. -->
-               <nav class="mdl-navigation mdl-layout--large-screen-only">
-                  <a class="mdl-navigation__link" href=""></a>
-                  <a class="mdl-navigation__link" href=""></a>
-                  <a class="mdl-navigation__link" href=""></a>
-                  <a class="mdl-navigation__link" href=""></a>
-               </nav>
-            </div>
-         </header>
-         <div class="mdl-layout__drawer">
-            <img src="images/logo-menu.png" style="border-radius: 100%; height: 65px; width: 65px;">
-            <nav class="mdl-navigation">
-               <a class="mdl-navigation__link" href="escolher.html">Início</a>
-               <a class="mdl-navigation__link" href="ultimosagenda.html">Meus agendamentos</a>
-               <!--<a class="mdl-navigation__link" href="listaDeEmpresas.html">Prontuário</a>-->
-               <!--<a class="mdl-navigation__link" href="">Contrato</a>-->
-               <!--<a class="mdl-navigation__link" href="">Modelo de Documentos</a>-->
-               <a class="mdl-navigation__link" href="">Pagamentos</a>
-               <!--<a class="mdl-navigation__link" href="">Encaminhamento</a>-->
-               <a class="mdl-navigation__link" href="ranking.html">Ranking</a>
-               <a href="#" id="btnLogOut" class="mdl-navigation__link">Sair</a>
-            </nav>
-         </div>
-         <!-- CARDS PAINEL -->
-         <!-- Bootstrap CSS -->
-         <link rel="stylesheet" href="lib/bootstrap431.css">
-         <link rel="stylesheet" href="css/app-calendar.css" />
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Material Design Lite -->
+    <script src="js/material.min.js"></script>
+    <link rel="stylesheet" href="css/material.indigo-pink.min.css">
+    <!-- Roboto Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <!-- Material Design icon font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+      /*7f51b3*/
+      #relogio{
+      background-image: url("images/relogio.jpg");
+      background-repeat: no-repeat;
+      background-position: center;       
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      }
+      #porta{
+      background-image: url("images/porta.png");
+      background-position: center;
+      width: 100%;
+      height: 100%;
+      text-align: center;  
+      }
+      td{
+      background-color: white; color: black;
+      }
 
-         <div id="calendar" ></div>
+      .ui-datepicker-today{
+        color: white !important;
+      }
+
+      .ui-datepicker-current-day{
+      	color: white !important;
+      }
+
+      .btn{color: white !important;
+      	z-index: 9999 !important ;
+      }
+
+      #calendar{
+      	z-index: 9999 !important;
+      }
+
+      .abaixo{
+      	z-index: 9998 !important ;
+      }
+
+      a { color:inherit !important; text-decoration:none !important; font-weight:normal; }
+
+      .table-dark{
+      	z-index: 9999;
+      }
+
+      .btn-extra{
+      	width: 100%;
+      }
+
+
+     
+    </style>
+    <!-- icones externos -->
+    <script src="https://kit.fontawesome.com/a664376c48.js"></script>
+    <!-- baseado em authDemo.html -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
+    <script type="text/javascript" src="js/configFire.js"></script>
+    <!--Dependencia de autentificação -->
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script type="text/javascript">
+      var paginaLogin = false;
+      
+      var faixaHorario = localStorage.getItem('faixahorario');
+      
+       //alert(faixaHorario);
+    </script>
+    <!-- Grid CSS -->
+    <link rel="stylesheet" href="css/grid.css">
+    <title>Consultório Hugo Silva</title>
+  </head>
+  <body>
+    <!-- Always shows a header, even in smaller screens. -->
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <!-- Title -->
+          <img src="images/logo-menu.png" style="border-radius: 100%; height: 65px; width: 65px; position: fixed; right: 20px;">
+          <!-- Add spacer, to align navigation to the right -->
+          <div class="mdl-layout-spacer"></div>
+          <!-- Navigation. We hide it in small screens. -->
+          <nav class="mdl-navigation mdl-layout--large-screen-only">
+            <a class="mdl-navigation__link" href=""></a>
+            <a class="mdl-navigation__link" href=""></a>
+            <a class="mdl-navigation__link" href=""></a>
+            <a class="mdl-navigation__link" href=""></a>
+          </nav>
+        </div>
+      </header>
+      <div class="mdl-layout__drawer">
+        <img src="images/logo-menu.png" style="border-radius: 100%; height: 65px; width: 65px; position: fixed; right: 20px;">
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="escolher.html">Início</a>
+          <a class="mdl-navigation__link" href="ultimosagenda.html">Agendamento</a>
+          <!--<a class="mdl-navigation__link" href="listaDeEmpresas.html">Prontuário</a>-->
+          <!--<a class="mdl-navigation__link" href="">Contrato</a>-->
+          <!--<a class="mdl-navigation__link" href="">Modelo de Documentos</a>-->
+          <a class="mdl-navigation__link" href="">Pagamentos</a>
+          <!--<a class="mdl-navigation__link" href="">Encaminhamento</a>-->
+          <a class="mdl-navigation__link" href="ranking.html">Ranking</a>
+          <a href="#" id="btnLogOut" class="mdl-navigation__link">Sair</a>
+        </nav>
+      </div>
+      <div class="mdl-grid">
+        <div class="mdl-layout-spacer"></div>
+        <div class="mdl-cell mdl-cell--12-col">
+          <!-- CARDS PAINEL -->
+          <!-- Bootstrap CSS -->
+          <link rel="stylesheet" href="lib/bootstrap431.css">
+          <link rel="stylesheet" href="css/app-calendar.css" />
+          <div class="container">
+            <!-- Show jQuery Datepicker here -->
+            <div id="calendar"></div>
+          </div>
           <!-- Hidden form for taking event response from the user -->
-          <div class="card" id="event-form" style="z-index: 9999 !important;">
+          <div class="card" id="event-form">
             <div class="form-group">
               
             </div>
             <div class="form-group">
-              <center><h4>Confirmação</h4></center>
+              <center><h1>Confirmação</h1></center>
              
             </div>
             <div class="form-group">
@@ -131,182 +146,117 @@
               <a href="#" class="btn btn-danger" id="submit" onclick="$('.card').hide();">Cancelar</a>
             </div>
           </div>
-         <!-- TABELA DOS QUARTOS -->
-         <!-- Table to display list of calendar events -->
-         <div class="container">
+
+          <!-- TABELA DOS QUARTOS -->
+
+
+          <!-- Table to display list of calendar events -->
+          <div class="container">
+            
             <table class="table table-dark abaixo" id="no-events-list">
-               <thead>
-                  <tr>
-                     <td onclick="selecionarSala('s1');">Sala 1</td>
-                     <td><button class="btn btn-primary btn-extra">Ver Sala</button></td>
-                  </tr>
-                  <tr>
-                     <td onclick="selecionarSala('s2');">Sala 2</td>
-                     <td><button class="btn btn-primary btn-extra">Ver Sala</button></td>
-                  </tr>
-                  <tr>
-                     <td onclick="selecionarSala('s3');">Sala 3</td>
-                     <td><button class="btn btn-primary btn-extra">Ver Sala</button></td>
-                  </tr>
-                  <tr>
-                     <td onclick="selecionarSala('s4');">Sala 4</td>
-                     <td><button class="btn btn-primary btn-extra">Ver Sala</button></td>
-                  </tr>
-               </thead>
-               <tbody></tbody>
+              <thead>
+                <tr>
+                  <td onclick="selecionarSala('s1');">Sala 1</td>                  
+                  <td><button class="btn btn-primary btn-extra">Ver Sala</button></td>  
+                        
+                </tr>
+
+                <tr>
+                	<td onclick="selecionarSala('s2');">Sala 2</td> 
+				  <td><button class="btn btn-primary btn-extra">Ver Sala</button></td> 
+                </tr>
+
+                <tr>
+                	<td onclick="selecionarSala('s3');">Sala 3</td>
+                	<td><button class="btn btn-primary btn-extra">Ver Sala</button></td>
+                </tr>
+
+                <tr>
+                	<td onclick="selecionarSala('s4');">Sala 4</td>
+                	<td><button class="btn btn-primary btn-extra">Ver Sala</button></td> 
+                </tr>
+
+               
+              </thead>
+              <tbody></tbody>
             </table>
-         </div>
           </div>
 
 
-         
-         <!-- TABELA DOS QUARTOS -->
-         <!-- Table to display list of calendar events -->
-         <div class="container" style="display: none;">
+
+
+
+
+          <!-- TABELA DOS QUARTOS -->
+
+
+          <!-- Table to display list of calendar events -->
+          <div class="container" style="display: none;">
             <input id="search" type="text" placeholder="Procurar eventos" class="form-control"/>
             <table class="table table-dark" id="events-list">
-               <thead>
-                  <tr>
-                     <td>Data</td>
-                     <td>Locação</td>
-                     <td>Descrição</td>
-                     <td>Confirmar</td>
-                  </tr>
-               </thead>
-               <tbody></tbody>
+              <thead>
+                <tr>
+                  <td>Data</td>
+                  <td>Locação</td>
+                  <td>Descrição</td>
+                  <td>Confirmar</td>
+                </tr>
+              </thead>
+              <tbody></tbody>
             </table>
-         </div>
-         <script src="lib/jquery-1.12.4.js"></script>
-         <script src="lib/query-ui.js"></script>
-         <script src="js/app-calendar.js" type="text/javascript"></script>
-         <!-- CARDS PAINEL -->
-         <!-- FIREBASE CRUD -->
-         <!-- content -->
-         <!-- XRUD local -->
-         <center>
+          </div>
+          <script src="lib/jquery-1.12.4.js"></script>
+          <script src="lib/query-ui.js"></script>
+          <script src="js/app-calendar.js" type="text/javascript"></script>
+          <!-- CARDS PAINEL -->
+          <!-- FIREBASE CRUD -->
+          <!-- content -->
+          <!-- XRUD local -->
+          <center>
             <div id="output"></div>
+           
             <div id="style">
             </div>
             <script src="js/xrud.js"></script>
             <script src="js/json2html.js"></script>
-            <script>
-               var listaGlobal = "";
-               var stringReservados = [];
-               var limitesDeQuarto = 4;
-               
-               var salaSelecionada = localStorage.getItem("faixaDaSala");
-               var tipoval = typeof(salaSelecionada);
+            
+            <script type="text/javascript" src="js/marcaAgenda.js"></script>
 
-               //alert("Passagem de teste: "+salaSelecionada)
+          </center>
 
-               if (salaSelecionada != null) {
-                //alert("Sala selecionada: "+salaSelecionada);
-               }
+          <style>
+          	#madademais{
+          		color: #a201ff;
+          		background: radial-gradient(ellipse at center,#a201ff 0%,#a201ff 0%,#a201ff 67%,rgba(0,0,0,0) 70%);
 
-               if (salaSelecionada == "null") {
-                alert("Nenhuma sala foi selecionada");
-               }
-               
-               
-               
-               if (typeof salaSelecionada === "undefined") {
-                 localStorage.setItem("faixaDaSala", "s1");
-               } 
-
-               if (salaSelecionada == "null") {
-
-                 localStorage.setItem("faixaDaSala", "s1");
-                 var salaSelecionada = localStorage.getItem("faixaDaSala");
-                 alert("Sala selecionada automaticamente: "+salaSelecionada);
-               } else{
-                alert("Sala selecionada: "+salaSelecionada);
-               }
-               
-                                   var reservado = true;
-                                   var listagemString = 0;
-               
-                                   function xrud_miniController($content){
-                                     
-                                   let saida = JSON.parse($content);
-                                          
-               
-                                   for(var k in saida) {            
-                                     
-               
-                                      if (k =='assinatura'){           
-                               
-               
-                                       // VERIFICAÇÃO DE DATA E SALAS
-               
-               
-                                      // console.log(saida[k]+'console');
-                                       let filtroString = saida[k].replace(/\//g, "-");
-                                       let horariosReservados = localStorage.getItem('faixahorario');
-                                       //Aparencia mapa
-                                       let dataString = filtroString;
-                                       var stringReservados = stringReservados + ' ' +dataString + ' ,';
-                                       let pagina = window.document.getElementById('style').innerHTML;
-                                       console.log(dataString+' classe');
-                                       window.document.getElementById('style').innerHTML = pagina+'<style> .'+dataString+'{ color: white; background: red !important; } a.'+dataString+' a:link{ color:white;} </style>';
-                                       
-                                       console.log(dataString+' <-saida x '+dataString);
-               
-               
-               
-                                       // colocar formato de data igual nos dois arquivos
-                                       // Usar queryString para manipular CSS da classe data
-                                      }
-                                   }
-               
-                                //   alert(stringReservados);
-               
-                                   
-                               }
-                     
-                      function revelarReservadas($strings){
-                         alert($strings);
-                      }
-               
-                       // implementation 
-                //   xrud_search('agendamento', 'Local', 'SP')
-                   //xrud_send('agendamento', 'newdoc', dataDemo);
-                   //xrud_delete('empresas', 'SF');
-                  // xrud_read('agendamento/10/30');
-               
-                  
-                   
-            </script>
-         </center>
-         <!-- content -->    
-         <!-- FIREBASE CRUD -->   
-      </div>
-      <div class="mdl-layout-spacer"></div>
+          	}
+          </style>
+          <!-- content -->    
+          <!-- FIREBASE CRUD -->   
+        </div>
+        <div class="mdl-layout-spacer"></div>
       </div>
       <main class="mdl-layout__content">
-         <div class="page-content">
-            <!-- Your content goes here -->
-            <!-- List items with avatar and action -->
-            <style>
-/*.demo-list-action {
-               width: 300px;
-               }
-               .s111-1-09-2021 {
-               color: white; background: red !important; }
-               a.s111-1-09-2021 a:link{ color:white;
-               }*/
-            </style>
-         </div>
+        <div class="page-content">
+          <!-- Your content goes here -->
+          <!-- List items with avatar and action -->
+          <style>
+            .demo-list-action {
+            width: 300px;
+            }
+          </style>
+        </div>
       </main>
-      </div>
-      <!-- Para refatorar: Prazo curto de projeto -->
-      <div style="display: none">
-         <button id="btnLogin" class="btn btn-success" >Login</button><button id="btnSignUp">Cadastro</button><br>
-         <button id="btnLogOut" style="display: none;">Sair</button>
-      </div>
-      <script src="js/appAuth.js"></script>
-      <script type="text/javascript" src="js/app.js"></script>
-      <script type="text/javascript">
-         /*  window.document.getElementById('style').innerHTML = 'Testado <style> .a10-1-2020{ display: none; } </style>';*/
-      </script>
-   </body>
+    </div>
+    <!-- Para refatorar: Prazo curto de projeto -->
+    <div style="display: none">
+      <button id="btnLogin" class="btn btn-success" >Login</button><button id="btnSignUp">Cadastro</button><br>
+      <button id="btnLogOut" style="display: none;">Sair</button>
+    </div>
+    <script src="js/appAuth.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript">
+      /*  window.document.getElementById('style').innerHTML = 'Testado <style> .a10-1-2020{ display: none; } </style>';*/
+    </script>
+  </body>
 </html>

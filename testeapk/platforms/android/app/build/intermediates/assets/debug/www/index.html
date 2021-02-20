@@ -17,31 +17,56 @@
 	</script>
 
 	<style type="text/css">
-	html{
-			height: 100%;
-			width: 100%;
-			position: relative;
-			zoom: 100%;
-			background-color: #8800ff;
-	}
+html ,
 
-	
-		#logo
-				{
-					position: absolute;
-				display: block;
-  margin: 5px auto;
-  max-width: 100%;
-  top: 20%;
-					
-				}
-	}
+body { margin:0; height: 100%;}
+.um { background: #333; 
+	color: white; 
+	padding: 50px 20px; 
+  	height: 100%;                        /* para falta de suporte */  
+  	height: -webkit-calc(100% - 100px);  /* para Chrome */
+    height: -moz-calc(100% - 100px);     /* para Firefox */
+  	height: calc(100% - 100px);          /* para suporte nativo */
+  	
+  	
+ }
+
+* {
+  padding:0;
+  margin:0;
+}
+.intro {
+  display: table;
+  width: 100%;
+  height: 100vh;
+  padding: 100px 0;
+  color: white;
+  background: url('images/abertura-original.jpeg') no-repeat bottom center scroll;
+  background-position: 30% 45%;
+  background-size: cover;
+}
+
+#containerGeral
+			{
+				position: relative;
+				width: 100%;
+				height: 100%;
+			
+				background-color: yellow;
+				min-height: 100%;
+
+				background: url('images/abertura-original.jpeg') no-repeat bottom center scroll;
+  background-position: 30% 45%;
+  background-size: cover;
+			}
 	</style>
 </head>
 
 <body>
 
-<img id="logo" src="images/logo.png">
+
+<div id="containerGeral"></div>
+<!--<img id="logo" src="images/logo-abertura.png">-->
 
 </body>
 </html>

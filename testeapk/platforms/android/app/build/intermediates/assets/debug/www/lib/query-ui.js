@@ -8946,10 +8946,11 @@ $.extend( Datepicker.prototype, {
 						let getDia = printDate.getDate();
 						let faixaDeHorario = localStorage.getItem("faixahorario");
 						if (getDia < 10) {
-							var diaclass = "0"+getDia;
+							var diaclass = getDia;
 						}else{
 							var diaclass = getDia;
 						}
+						//console.log(diaclass);
 						daySettings = ( beforeShowDay ?
 							beforeShowDay.apply( ( inst.input ? inst.input[ 0 ] : null ), [ printDate ] ) : [ true, "" ] );
 						otherMonth = ( printDate.getMonth() !== drawMonth );
@@ -9533,8 +9534,7 @@ var plugin = $.ui.plugin = {
 var safeBlur = $.ui.safeBlur = function( element ) {
 
 	// Support: IE9 - 10 only
-	// If the <link rel="stylesheet" type="text/css" href="css/molde.css">
-   //<body id="containerGeral"> is blurred, IE will switch windows, see #9420
+	// If the <body> is blurred, IE will switch windows, see #9420
 	if ( element && element.nodeName.toLowerCase() !== "body" ) {
 		$( element ).trigger( "blur" );
 	}
