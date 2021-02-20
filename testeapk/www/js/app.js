@@ -23,7 +23,6 @@
   				$data = $data.replace(/\//g, "-");
   				let quartoAtual = faixaDaSala;
   				let assinaturaOriginal = $data; 
-                 //$data = quartoAtual+$data;
 
                   var dataDemo = {
                                 nome: "João", Local: "SP", country: "validando sobreescrendo fdfdixom 23e agora? novidade com false agora confirmando novo usado em app.js central",
@@ -42,7 +41,13 @@
                  	xrud_send('agendamento', $data, dataDemo);
                  	// Se o número dessa data acumulada na variável, for igual ao número de salas
                  	// disponíveis, executar comando abaixo (complementar cadastro de salas)
-                 	alert('Agendamento confirmado com sucesso!');
+                 	alert('Agendamento confirmado com sucesso! -> <br>'+$data);
+
+                   setTimeout( function() {
+
+                window.location.href = "escolher.html";
+
+        }, 500 );   
                  	
                  }
                  	else{
@@ -144,7 +149,6 @@
    }
 
    function checkin($assinatura){
-    alert($assinatura);
       localStorage.setItem("checkin", $assinatura);
       setTimeout( function() {
 
