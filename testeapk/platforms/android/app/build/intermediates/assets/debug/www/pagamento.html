@@ -131,7 +131,8 @@ const textArea = document.querySelector('input');
 btnCopy.addEventListener('click', (e) => {
   e.preventDefault();
   
-  navigator.clipboard.writeText(textArea.value);
+  cordova.plugins.clipboard.copy(textArea.value);
+  //navigator.clipboard.writeText(textArea.value);
   
   alert('PIX Copiado com sucesso! Cole no aplicativo do seu banco');
 });
