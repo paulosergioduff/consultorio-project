@@ -15,12 +15,25 @@
     <style>
     	/*7f51b3*/
 
-        #corpo{
-       text-align: center;
-       margin-top: 6px;
-       font-size: 20px;
+      #relogio{
+        background-image: url("images/relogio.jpg");
+        background-repeat: no-repeat;
+        background-position: center;       
+        width: 100%;
+        height: 100%;
+        text-align: center;
         
       }
+
+       #porta{
+        background-image: url("images/porta.png");
+       background-position: center;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        
+      }
+        
     </style>
 
     <!-- icones externos -->
@@ -79,10 +92,77 @@
         <!--<a class="mdl-navigation__link" href="">Encaminhamento</a>-->
         <a class="mdl-navigation__link" href="ranking.html">Ranking</a>
 <a href="#" id="btnLogOut" class="mdl-navigation__link">Sair</a>
+        
       </nav>
     </div>
 
-<div id="corpo">Top Agendamentos</div> 
+   <div class="mdl-grid">
+    <div class="mdl-layout-spacer"></div>
+    <div class="mdl-cell mdl-cell--6-col">
+    	
+<!-- CARDS PAINEL -->
+
+
+<center>
+	
+	<h3>Copie o PIX para executar o pagamento</h3>
+
+	<!-- Simple Textfield -->
+<form action="#">
+  <div class="mdl-textfield mdl-js-textfield">
+    <input class="mdl-textfield__input form-control" type="text" id="sample1"  value="8f7a98f">
+    <label class="mdl-textfield__label" for="sample1">Text...</label>
+<BR>
+    <!-- Colored raised button -->
+<a href="" class="btn btn-primary copy">Copiar PIX</a>
+
+  </div>
+
+
+</form>
+
+
+<script type="text/javascript">
+	
+	const btnCopy = document.querySelector('a.copy');
+const btnPaste = document.querySelector('a.paste');
+const textArea = document.querySelector('input');
+
+btnCopy.addEventListener('click', (e) => {
+  e.preventDefault();
+  
+  navigator.clipboard.writeText(textArea.value);
+  
+  alert('PIX Copiado com sucesso! Cole no aplicativo do seu banco');
+});
+
+btnPaste.addEventListener('click', async (e) => {
+  e.preventDefault();
+
+  const response = await navigator.clipboard.readText();
+  textArea.value = response;
+  
+  alert('Um texto que você tenha copiado da área de transferência foi inserido no campo, clique em ok para ver!');
+});
+
+
+
+</script>
+
+
+
+
+</center>
+
+
+<!-- CARDS PAINEL -->
+
+
+
+    </div>
+    <div class="mdl-layout-spacer"></div>
+</div>
+
 
     <main class="mdl-layout__content">
       <div class="page-content"><!-- Your content goes here -->
@@ -139,23 +219,7 @@
   <script src="js/appAuth.js"></script>
   
 
-  <script type="text/javascript">
-  	
-  	function action($sala, $mensagem){
-  		let mensagem = $mensagem;
-  		localStorage.setItem('sala2', $mensagem);
-	    	
-  	}
 
-  	function reservar($sala, $store){
-  		localStorage.setItem($sala, $store);
-  		setTimeout(function() {
-	    		window.location.href = "agendando.html";
-			}, 1000);
-  		//alert($store);
-  	}
-
-  </script>
 
 
 </body>
