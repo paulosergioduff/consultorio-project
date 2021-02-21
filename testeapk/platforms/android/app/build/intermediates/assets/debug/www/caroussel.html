@@ -97,7 +97,7 @@
         <!--<a class="mdl-navigation__link" href="listaDeEmpresas.html">Prontuário</a>-->
         <!--<a class="mdl-navigation__link" href="">Contrato</a>-->
         <!--<a class="mdl-navigation__link" href="">Modelo de Documentos</a>-->
-<a class="mdl-navigation__link" href="">Pagamentos</a>
+<a class="mdl-navigation__link" href="pagamento.html">Pagamentos</a>
         <!--<a class="mdl-navigation__link" href="">Encaminhamento</a>-->
         <a class="mdl-navigation__link" href="ranking.html">Ranking</a>
 <a href="#" id="btnLogOut" class="mdl-navigation__link">Sair</a>
@@ -108,12 +108,30 @@
    <div class="mdl-grid">
     <div class="mdl-layout-spacer"></div>
     <div class="mdl-cell mdl-cell--6-col">
+
+      <link rel="stylesheet" type="text/css" href="css/flick.css">
+  <link rel="stylesheet" type="text/css" href="css/touch-gallery.css">
+  <p><code>freeScroll: true, wrapAround: true</code></p>
+<!-- Flickity HTML init -->
+<div class="gallery js-flickity"
+  data-flickity-options='{ "freeScroll": true, "wrapAround": true }' id="carousel-notification" style="width: 100% !important" >
+  <!--
+  <div class="gallery-cell"></div>
+  <div class="gallery-cell"></div>
+  <div class="gallery-cell"></div>
+  <div class="gallery-cell"></div>
+  <div class="gallery-cell"></div>
+  <div class="gallery-cell"></div>
+-->
+</div>
+<script type="text/javascript" src="js/flick.js"></script>
+
     	
 <!-- CARDS PAINEL -->
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-<div id="carousel-notification" class="bootstrap-carousel" data-indicators="true" data-controls="true">
+<div class="bootstrap-carousel" data-indicators="true" data-controls="true">
          <!-- <img src="http://barkpost-assets.s3.amazonaws.com/wp-content/uploads/2013/11/plainDoge-700x525.jpg" data-titlex="doge" data-content="Hey there!">
             <img src="http://www.howlofadog.org/wp-content/uploads/2015/05/laika-4.jpg" data-titlex="laika" data-content="Hey ...!">
             <img src="http://rack.3.mshcdn.com/media/ZgkyMDEyLzEyLzA0LzlkLzE1YmVzdGNhdG1lLmFIOC5qcGcKcAl0aHVtYgk1NjB4NzUwCmUJanBn/36a99417/5f7/15-best-cat-memes-ever-meow--3283dd863e.jpg" data-titlex="cat">
@@ -203,7 +221,7 @@
       let salaEscolhida = localStorage.getItem("salaEscolhida");
       let caminho = 'images/ver/'+salaEscolhida+'/';
       console.log(caminho);
-      var salaHTML = salaHTML+'<img src="'+caminho+'sala'+i+'.jpg" >';
+      var salaHTML = salaHTML+'<img src="'+caminho+'sala'+i+'.jpg" class="gallery-cell">';
     }
 
     window.document.getElementById('carousel-notification').innerHTML = salaHTML;
