@@ -12,13 +12,19 @@ body { margin:0; height: 100%;}
   	
  }
 
+#interna {
+margin: 0 auto;
+width: 50%; /* Valor da Largura */
+}
+
+
 #containerGeral
 			{
 				position: relative;
 				width: 100%;
 				height: 100%;
-				/*border-style: solid;
-				border-color: red;*/
+				border-style: solid;
+				border-color: red;
 				background-color: white;
 				min-height: 100%;
 			}
@@ -41,6 +47,21 @@ body { margin:0; height: 100%;}
 			top: 0%;
 		}
 
+
+#centralizador
+
+		{
+			width: 95%;
+			height: 100%;
+			left: 5%;
+			/*border-style: solid;
+			border-color: red;
+			background-color: green;*/
+			text-align: center !important;
+
+			top: 15%;
+			position: absolute;
+		}
 
 #containerTeste
 
